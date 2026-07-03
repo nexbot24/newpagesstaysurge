@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #EAE8E2; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  </style>
+  <template id="__bundler_thumbnail" data-bg-color="#EAE8E2">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect x="440" y="240" width="320" height="320" rx="80" fill="#1B1A17"></rect>
+      <rect x="530" y="400" width="28" height="90" rx="10" fill="#A05C2E"></rect>
+      <rect x="586" y="360" width="28" height="130" rx="10" fill="#DCA983"></rect>
+      <rect x="642" y="320" width="28" height="170" rx="10" fill="#F5F3EE"></rect>
+    </svg>
+  </template>
+</helmet>
+
+<div style="width: 100%; min-height: 100vh; background: #EAE8E2; display: flex; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box;">
+
+  <!-- Icon rail -->
+  <div style="width: 84px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 26px 0 26px; gap: 10px; border-right: 1px solid rgba(27,26,23,0.06);">
+    <div style="width: 40px; height: 40px; border-radius: 14px; background: #1B1A17; display: flex; align-items: flex-end; justify-content: center; gap: 3px; padding-bottom: 9px; margin-bottom: 22px;">
+      <div style="width: 4px; height: 8px; border-radius: 2px; background: #A05C2E;"></div>
+      <div style="width: 4px; height: 14px; border-radius: 2px; background: #DCA983;"></div>
+      <div style="width: 4px; height: 19px; border-radius: 2px; background: #F5F3EE;"></div>
+    </div>
+    <a href="StaySurge Dashboard (7a).dc.html" title="Dashboard" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer; text-decoration: none;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+      <div style="display: grid; grid-template-columns: 7px 7px; gap: 3px;">
+        <div style="width: 7px; height: 7px; border-radius: 2px; background: currentColor;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 2px; background: currentColor;"></div>
+      </div>
+    </a>
+    <div title="Properties" style="width: 48px; height: 48px; border-radius: 16px; background: #FAF9F6; box-shadow: 0 3px 10px rgba(27,26,23,0.08); display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;">
+      <div style="width: 16px; height: 16px; border-radius: 5px; border: 2px solid #A05C2E; position: relative;">
+        <div style="position: absolute; left: 3.5px; top: 3.5px; width: 5px; height: 5px; border-radius: 2px; background: #A05C2E;"></div>
+      </div>
+      <div style="position: absolute; left: -18px; top: 14px; width: 3px; height: 20px; border-radius: 2px; background: #1B1A17;"></div>
+    </div>
+    <div title="Integrations" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+      <div style="display: flex; align-items: center;">
+        <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid currentColor;"></div>
+        <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid currentColor; margin-left: -4px;"></div>
+      </div>
+    </div>
+    <div style="margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+      <div title="Sync engine: all channels live" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 9px; height: 9px; border-radius: 50%; background: #A05C2E; box-shadow: 0 0 0 5px rgba(160,92,46,0.15);"></div>
+      </div>
+      <div title="Settings" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+        <div style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; position: relative;">
+          <div style="position: absolute; left: 3.5px; top: 3.5px; width: 7px; height: 7px; border-radius: 50%; background: currentColor;"></div>
+        </div>
+      </div>
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: #1B1A17; color: #F5F3EE; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; letter-spacing: 0.06em;">SS</div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex: 1; display: flex; flex-direction: column; padding: 36px 48px 44px 36px; min-width: 0;">
+
+    <!-- Title + actions -->
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; padding-bottom: 6px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; letter-spacing: 0.02em;">StaySurge</span>
+          <span style="width: 26px; height: 1px; background: rgba(27,26,23,0.25);"></span>
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: #A09B90;">PROPERTIES</span>
+        </div>
+        <h1 style="margin: 0; font-family: 'Marcellus', serif; font-size: 56px; font-weight: 400; letter-spacing: 0.005em; color: #1B1A17; line-height: 1;">Properties Overview</h1>
+      </div>
+      <div style="display: flex; align-items: center; gap: 18px; padding-top: 8px;">
+        <div style="display: flex; align-items: center; gap: 7px;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E;"></div>
+          <span style="font-size: 12px; letter-spacing: 0.02em; color: #6E6A61;">Last updated · Just now</span>
+        </div>
+        <button style="display: inline-flex; align-items: center; gap: 10px; height: 50px; padding: 0 28px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; box-shadow: 0 12px 28px -12px rgba(27,26,23,0.6);" style-hover="background: #33312C;">
+          <span style="font-size: 16px; font-weight: 300; line-height: 1; letter-spacing: 0;">+</span> IMPORT LISTINGS
+        </button>
+      </div>
+    </div>
+
+    <!-- Summary strip -->
+    <div style="display: flex; align-items: center; gap: 44px; padding: 28px 4px 28px;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; color: #A09B90;">LISTINGS LIVE</div>
+        <div style="display: flex; align-items: baseline; gap: 10px;">
+          <span style="font-family: 'Marcellus', serif; font-size: 38px; color: #1B1A17; line-height: 1;">3</span>
+          <span style="font-size: 12px; letter-spacing: 0.02em; color: #6E6A61;">of 3 syncing</span>
+        </div>
+      </div>
+      <div style="width: 1px; height: 46px; background: rgba(27,26,23,0.12);"></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; color: #A09B90;">AVG OCCUPANCY · 7D</div>
+        <div style="display: flex; align-items: baseline; gap: 12px;">
+          <span style="font-family: 'Marcellus', serif; font-size: 38px; color: #1B1A17; line-height: 1;">48<span style="font-size: 21px; color: #928D82;">%</span></span>
+          <span style="display: inline-flex; align-items: center; padding: 4px 11px; border-radius: 999px; background: rgba(160,92,46,0.11); color: #96501F; font-size: 10px; font-weight: 500; letter-spacing: 0.12em;">1 OF 3 LOW</span>
+        </div>
+      </div>
+      <div style="width: 1px; height: 46px; background: rgba(27,26,23,0.12);"></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; color: #A09B90;">AVG OCCUPANCY · 30D</div>
+        <div style="display: flex; align-items: baseline; gap: 12px;">
+          <span style="font-family: 'Marcellus', serif; font-size: 38px; color: #1B1A17; line-height: 1;">37<span style="font-size: 21px; color: #928D82;">%</span></span>
+          <span style="display: inline-flex; align-items: center; padding: 4px 11px; border-radius: 999px; background: rgba(160,92,46,0.11); color: #96501F; font-size: 10px; font-weight: 500; letter-spacing: 0.12em;">2 OF 3 LOW</span>
+        </div>
+      </div>
+      <div style="width: 1px; height: 46px; background: rgba(27,26,23,0.12);"></div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; color: #A09B90;">NIGHTLY BASE RANGE</div>
+        <div style="display: flex; align-items: baseline;">
+          <span style="font-family: 'Marcellus', serif; font-size: 38px; color: #1B1A17; line-height: 1;">£205<span style="font-size: 21px; color: #928D82;">–420</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div style="display: flex; align-items: center; gap: 12px; padding-bottom: 24px;">
+      <div style="flex: 1; display: flex; align-items: center; gap: 14px; height: 52px; padding: 0 22px; border-radius: 999px; background: #FAF9F6; border: 1px solid rgba(27,26,23,0.06); box-shadow: 0 2px 8px rgba(27,26,23,0.04);">
+        <div style="position: relative; width: 16px; height: 16px;">
+          <div style="width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #A09B90;"></div>
+          <div style="position: absolute; right: 0; bottom: 0; width: 6px; height: 1.5px; border-radius: 1px; background: #A09B90; transform: rotate(45deg);"></div>
+        </div>
+        <input placeholder="Search listings, cities, or tags…" style="flex: 1; border: none; outline: none; background: transparent; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; letter-spacing: 0.01em; color: #1B1A17;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 10px; color: #A09B90; border: 1px solid rgba(27,26,23,0.12); border-radius: 7px; padding: 3px 7px;">⌘K</div>
+      </div>
+      <button style="display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 26px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.06); background: #FAF9F6; box-shadow: 0 2px 8px rgba(27,26,23,0.04); color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: #F2F0EB;">
+        <span style="display: inline-flex; flex-direction: column; gap: 3px;"><span style="width: 13px; height: 1.5px; background: currentColor;"></span><span style="width: 8px; height: 1.5px; background: currentColor;"></span></span>
+        FILTERS
+      </button>
+      <button style="height: 52px; padding: 0 20px; border-radius: 999px; border: none; background: transparent; color: #96501F; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: rgba(160,92,46,0.08);">CLEAR ALL</button>
+    </div>
+
+    <!-- Gallery cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 18px;">
+
+      <!-- Card 1 -->
+      <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 2px 10px rgba(27,26,23,0.03); transition: box-shadow 0.25s, transform 0.25s;" style-hover="box-shadow: 0 20px 44px -18px rgba(27,26,23,0.22); transform: translateY(-2px);">
+        <div style="position: relative; height: 168px; background: repeating-linear-gradient(45deg, #E4D6C9, #E4D6C9 8px, #DCCBBB 8px, #DCCBBB 16px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: #8A6E56;">LISTING PHOTO</span>
+          <div style="position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 999px; background: rgba(250,249,246,0.9); backdrop-filter: blur(8px); font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: #1B1A17;">1 BR</div>
+          <div style="position: absolute; top: 14px; right: 14px; display: flex; align-items: center; gap: 8px; padding: 5px 6px 5px 12px; border-radius: 999px; background: rgba(27,26,23,0.82); backdrop-filter: blur(8px);">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: rgba(240,237,230,0.8);">LIVE</span>
+            <div style="width: 36px; height: 20px; border-radius: 999px; background: rgba(240,237,230,0.25); position: relative; cursor: pointer;"><div style="position: absolute; right: 2.5px; top: 2.5px; width: 15px; height: 15px; border-radius: 50%; background: #F0EDE6;"></div></div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 18px; padding: 22px 24px 24px;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div style="font-family: 'Marcellus', serif; font-size: 21px; color: #1B1A17; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Vibe — Modern Rustic</div>
+            <div style="font-size: 12.5px; letter-spacing: 0.02em; color: #8B867B;">Greater London, England</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 9px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+              <span style="font-family: 'Marcellus', serif; font-size: 30px; color: #1B1A17; line-height: 1;">£205</span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: #A09B90;">BASE / NIGHT</span>
+            </div>
+            <div style="position: relative; height: 3px; border-radius: 999px; background: rgba(27,26,23,0.09);">
+              <div style="position: absolute; left: 0; top: 0; height: 100%; width: 14%; border-radius: 999px; background: #A05C2E;"></div>
+              <div style="position: absolute; left: 14%; top: -4.5px; width: 12px; height: 12px; border-radius: 50%; background: #A05C2E; border: 2.5px solid #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transform: translateX(-6px);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; color: #A09B90;">MIN £120</span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; color: #A09B90;">MAX £1,500</span>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1px 1fr; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid rgba(27,26,23,0.07); border-bottom: 1px solid rgba(27,26,23,0.07);">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #A09B90;">OCC · 7D</span>
+              <span style="font-family: 'Marcellus', serif; font-size: 28px; color: #1B1A17; line-height: 1;">43<span style="font-size: 15px; color: #928D82;">%</span></span>
+              <div style="height: 2.5px; border-radius: 999px; background: rgba(27,26,23,0.09); overflow: hidden;"><div style="width: 43%; height: 100%; background: #A05C2E;"></div></div>
+            </div>
+            <div style="width: 1px; height: 100%; background: rgba(27,26,23,0.08);"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #A09B90;">OCC · 30D</span>
+              <span style="font-family: 'Marcellus', serif; font-size: 28px; color: #96501F; line-height: 1;">10<span style="font-size: 15px; color: #C08B6C;">%</span></span>
+              <div style="height: 2.5px; border-radius: 999px; background: rgba(27,26,23,0.09); overflow: hidden;"><div style="width: 10%; height: 100%; background: #A05C2E;"></div></div>
+            </div>
+          </div>
+          <a href="StaySurge Manage Pricing (6a).dc.html" style="text-decoration: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 46px; padding: 0 20px; box-sizing: border-box; border-radius: 999px; border: 1px solid rgba(27,26,23,0.22); background: transparent; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; transition: background 0.2s, color 0.2s;" style-hover="background: #1B1A17; color: #F0EDE6; border-color: #1B1A17;"><span style="display: flex; align-items: center;">MANAGE PRICING</span> <span style="font-size: 14px; letter-spacing: 0;">→</span></a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 2px 10px rgba(27,26,23,0.03); transition: box-shadow 0.25s, transform 0.25s;" style-hover="box-shadow: 0 20px 44px -18px rgba(27,26,23,0.22); transform: translateY(-2px);">
+        <div style="position: relative; height: 168px; background: repeating-linear-gradient(45deg, #D6DAD2, #D6DAD2 8px, #CBD1C6 8px, #CBD1C6 16px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: #6C7565;">LISTING PHOTO</span>
+          <div style="position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 999px; background: rgba(250,249,246,0.9); backdrop-filter: blur(8px); font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: #1B1A17;">3 BR</div>
+          <div style="position: absolute; top: 14px; right: 14px; display: flex; align-items: center; gap: 8px; padding: 5px 6px 5px 12px; border-radius: 999px; background: rgba(27,26,23,0.82); backdrop-filter: blur(8px);">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: rgba(240,237,230,0.8);">LIVE</span>
+            <div style="width: 36px; height: 20px; border-radius: 999px; background: rgba(240,237,230,0.25); position: relative; cursor: pointer;"><div style="position: absolute; right: 2.5px; top: 2.5px; width: 15px; height: 15px; border-radius: 50%; background: #F0EDE6;"></div></div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 18px; padding: 22px 24px 24px;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div style="font-family: 'Marcellus', serif; font-size: 21px; color: #1B1A17; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">The Elephant Retreat</div>
+            <div style="font-size: 12.5px; letter-spacing: 0.02em; color: #8B867B;">Greater London, England · Gym</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 9px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+              <span style="font-family: 'Marcellus', serif; font-size: 30px; color: #1B1A17; line-height: 1;">£420</span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: #A09B90;">BASE / NIGHT</span>
+            </div>
+            <div style="position: relative; height: 3px; border-radius: 999px; background: rgba(27,26,23,0.09);">
+              <div style="position: absolute; left: 0; top: 0; height: 100%; width: 27%; border-radius: 999px; background: #1B1A17;"></div>
+              <div style="position: absolute; left: 27%; top: -4.5px; width: 12px; height: 12px; border-radius: 50%; background: #1B1A17; border: 2.5px solid #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transform: translateX(-6px);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; color: #A09B90;">MIN £400</span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; color: #A09B90;">MAX £1,500</span>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1px 1fr; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid rgba(27,26,23,0.07); border-bottom: 1px solid rgba(27,26,23,0.07);">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #A09B90;">OCC · 7D</span>
+              <span style="font-family: 'Marcellus', serif; font-size: 28px; color: #96501F; line-height: 1;">0<span style="font-size: 15px; color: #C08B6C;">%</span></span>
+              <div style="height: 2.5px; border-radius: 999px; background: rgba(27,26,23,0.09);"></div>
+            </div>
+            <div style="width: 1px; height: 100%; background: rgba(27,26,23,0.08);"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #A09B90;">OCC · 30D</span>
+              <span style="font-family: 'Marcellus', serif; font-size: 28px; color: #96501F; line-height: 1;">0<span style="font-size: 15px; color: #C08B6C;">%</span></span>
+              <div style="height: 2.5px; border-radius: 999px; background: rgba(27,26,23,0.09);"></div>
+            </div>
+          </div>
+          <a href="StaySurge Manage Pricing (6a).dc.html" style="text-decoration: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 46px; padding: 0 20px; box-sizing: border-box; border-radius: 999px; border: 1px solid rgba(27,26,23,0.22); background: transparent; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; transition: background 0.2s, color 0.2s;" style-hover="background: #1B1A17; color: #F0EDE6; border-color: #1B1A17;"><span style="display: flex; align-items: center;">MANAGE PRICING</span> <span style="font-size: 14px; letter-spacing: 0;">→</span></a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 2px 10px rgba(27,26,23,0.03); transition: box-shadow 0.25s, transform 0.25s;" style-hover="box-shadow: 0 20px 44px -18px rgba(27,26,23,0.22); transform: translateY(-2px);">
+        <div style="position: relative; height: 168px; background: repeating-linear-gradient(45deg, #D9D3DE, #D9D3DE 8px, #CEC6D6 8px, #CEC6D6 16px); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: #71657E;">LISTING PHOTO</span>
+          <div style="position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 999px; background: rgba(250,249,246,0.9); backdrop-filter: blur(8px); font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: #1B1A17;">1 BR</div>
+          <div style="position: absolute; top: 14px; right: 14px; display: flex; align-items: center; gap: 8px; padding: 5px 6px 5px 12px; border-radius: 999px; background: rgba(27,26,23,0.82); backdrop-filter: blur(8px);">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: rgba(240,237,230,0.8);">LIVE</span>
+            <div style="width: 36px; height: 20px; border-radius: 999px; background: rgba(240,237,230,0.25); position: relative; cursor: pointer;"><div style="position: absolute; right: 2.5px; top: 2.5px; width: 15px; height: 15px; border-radius: 50%; background: #F0EDE6;"></div></div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 18px; padding: 22px 24px 24px;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div style="font-family: 'Marcellus', serif; font-size: 21px; color: #1B1A17; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Haven — Islington</div>
+            <div style="font-size: 12.5px; letter-spacing: 0.02em; color: #8B867B;">Greater London, England</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 9px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+              <span style="font-family: 'Marcellus', serif; font-size: 30px; color: #1B1A17; line-height: 1;">£240</span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: #A09B90;">BASE / NIGHT</span>
+            </div>
+            <div style="position: relative; height: 3px; border-radius: 999px; background: rgba(27,26,23,0.09);">
+              <div style="position: absolute; left: 0; top: 0; height: 100%; width: 17%; border-radius: 999px; background: #1B1A17;"></div>
+              <div style="position: absolute; left: 17%; top: -4.5px; width: 12px; height: 12px; border-radius: 50%; background: #1B1A17; border: 2.5px solid #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transform: translateX(-6px);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; color: #A09B90;">MIN £160</span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; color: #A09B90;">MAX £1,500</span>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1px 1fr; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid rgba(27,26,23,0.07); border-bottom: 1px solid rgba(27,26,23,0.07);">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #A09B90;">OCC · 7D</span>
+              <span style="font-family: 'Marcellus', serif; font-size: 28px; color: #3B5E94; line-height: 1;">100<span style="font-size: 15px; color: #8AA3C6;">%</span></span>
+              <div style="height: 2.5px; border-radius: 999px; background: rgba(27,26,23,0.09); overflow: hidden;"><div style="width: 100%; height: 100%; background: #3B5E94;"></div></div>
+            </div>
+            <div style="width: 1px; height: 100%; background: rgba(27,26,23,0.08);"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #A09B90;">OCC · 30D</span>
+              <span style="font-family: 'Marcellus', serif; font-size: 28px; color: #3B5E94; line-height: 1;">100<span style="font-size: 15px; color: #8AA3C6;">%</span></span>
+              <div style="height: 2.5px; border-radius: 999px; background: rgba(27,26,23,0.09); overflow: hidden;"><div style="width: 100%; height: 100%; background: #3B5E94;"></div></div>
+            </div>
+          </div>
+          <a href="StaySurge Manage Pricing (6a).dc.html" style="text-decoration: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 46px; padding: 0 20px; box-sizing: border-box; border-radius: 999px; border: 1px solid rgba(27,26,23,0.22); background: transparent; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; transition: background 0.2s, color 0.2s;" style-hover="background: #1B1A17; color: #F0EDE6; border-color: #1B1A17;"><span style="display: flex; align-items: center;">MANAGE PRICING</span> <span style="font-size: 14px; letter-spacing: 0;">→</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>
