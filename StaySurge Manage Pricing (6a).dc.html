@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #EAE8E2; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  </style>
+  <template id="__bundler_thumbnail" data-bg-color="#EAE8E2">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect x="440" y="240" width="320" height="320" rx="80" fill="#1B1A17"></rect>
+      <rect x="530" y="400" width="28" height="90" rx="10" fill="#A05C2E"></rect>
+      <rect x="586" y="360" width="28" height="130" rx="10" fill="#DCA983"></rect>
+      <rect x="642" y="320" width="28" height="170" rx="10" fill="#F5F3EE"></rect>
+    </svg>
+  </template>
+</helmet>
+
+<div style="width: 100%; min-height: 100vh; background: #EAE8E2; display: flex; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box;">
+
+  <!-- Icon rail -->
+  <div style="width: 84px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 26px 0 26px; gap: 10px; border-right: 1px solid rgba(27,26,23,0.06);">
+    <div style="width: 40px; height: 40px; border-radius: 14px; background: #1B1A17; display: flex; align-items: flex-end; justify-content: center; gap: 3px; padding-bottom: 9px; margin-bottom: 22px;">
+      <div style="width: 4px; height: 8px; border-radius: 2px; background: #A05C2E;"></div>
+      <div style="width: 4px; height: 14px; border-radius: 2px; background: #DCA983;"></div>
+      <div style="width: 4px; height: 19px; border-radius: 2px; background: #F5F3EE;"></div>
+    </div>
+    <a href="StaySurge Dashboard (7a).dc.html" title="Dashboard" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer; text-decoration: none;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+      <div style="display: grid; grid-template-columns: 7px 7px; gap: 3px;">
+        <div style="width: 7px; height: 7px; border-radius: 2px; background: currentColor;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 2px; background: currentColor;"></div>
+      </div>
+    </a>
+    <div title="Properties" style="width: 48px; height: 48px; border-radius: 16px; background: #FAF9F6; box-shadow: 0 3px 10px rgba(27,26,23,0.08); display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;">
+      <div style="width: 16px; height: 16px; border-radius: 5px; border: 2px solid #A05C2E; position: relative;">
+        <div style="position: absolute; left: 3.5px; top: 3.5px; width: 5px; height: 5px; border-radius: 2px; background: #A05C2E;"></div>
+      </div>
+      <div style="position: absolute; left: -18px; top: 14px; width: 3px; height: 20px; border-radius: 2px; background: #1B1A17;"></div>
+    </div>
+    <div title="Integrations" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+      <div style="display: flex; align-items: center;">
+        <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid currentColor;"></div>
+        <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid currentColor; margin-left: -4px;"></div>
+      </div>
+    </div>
+    <div style="margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+      <div title="Sync engine: all channels live" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 9px; height: 9px; border-radius: 50%; background: #A05C2E; box-shadow: 0 0 0 5px rgba(160,92,46,0.15);"></div>
+      </div>
+      <div title="Settings" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+        <div style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; position: relative;">
+          <div style="position: absolute; left: 3.5px; top: 3.5px; width: 7px; height: 7px; border-radius: 50%; background: currentColor;"></div>
+        </div>
+      </div>
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: #1B1A17; color: #F5F3EE; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; letter-spacing: 0.06em;">SS</div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex: 1; display: flex; flex-direction: column; padding: 36px 44px 44px 36px; min-width: 0;">
+
+    <!-- Breadcrumb + header -->
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; padding-bottom: 22px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <a href="StaySurge Properties (4a).dc.html" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: #A09B90;" style-hover="color: #1B1A17;">← PROPERTIES</a>
+          <span style="width: 26px; height: 1px; background: rgba(27,26,23,0.25);"></span>
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: #A09B90;">MANAGE PRICING</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <div style="width: 64px; height: 64px; border-radius: 20px; flex-shrink: 0; background: repeating-linear-gradient(45deg, #D9D3DE, #D9D3DE 8px, #CEC6D6 8px, #CEC6D6 16px); display: flex; align-items: center; justify-content: center; font-family: 'Marcellus', serif; font-size: 20px; color: #71657E;">H</div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <h1 style="margin: 0; font-family: 'Marcellus', serif; font-size: 40px; font-weight: 400; letter-spacing: 0.005em; color: #1B1A17; line-height: 1.05;">Haven — Bright &amp; Modern 1BR in Islington</h1>
+            <div style="font-size: 13px; letter-spacing: 0.02em; color: #6E6A61;">1 BR · Greater London, England · ID 563074…</div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding-top: 4px;">
+        <div style="display: flex; align-items: center; gap: 7px; padding-right: 6px;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E;"></div>
+          <span style="font-size: 12px; letter-spacing: 0.02em; color: #6E6A61;">Synced 4 min ago</span>
+        </div>
+        <button style="display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 24px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; box-shadow: 0 12px 28px -12px rgba(27,26,23,0.6);" style-hover="background: #33312C;">⟳ SYNC CALENDAR</button>
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #1B1A17; color: #F5F3EE; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; letter-spacing: 0.06em;">SS</div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div style="display: flex; align-items: center; gap: 8px; padding-bottom: 22px;">
+      <button style="height: 42px; padding: 0 24px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;">CALENDAR</button>
+      <button style="height: 42px; padding: 0 24px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #6E6A61; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05); color: #1B1A17;">COMPS</button>
+      <button style="height: 42px; padding: 0 24px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #6E6A61; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05); color: #1B1A17;">AI RULES</button>
+    </div>
+
+    <!-- Content -->
+    <div style="display: flex; gap: 20px; align-items: flex-start; min-width: 0;">
+
+      <!-- Config panel -->
+      <div style="width: 330px; flex-shrink: 0; display: flex; flex-direction: column; gap: 14px;">
+        <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 24px; padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 2px 10px rgba(27,26,23,0.03);">
+          <div style="display: flex; align-items: baseline; justify-content: space-between;">
+            <div style="font-family: 'Marcellus', serif; font-size: 24px; color: #1B1A17;">Configure Prices</div>
+            <div style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: #A09B90;">GBP</div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #A09B90;">MIN</span>
+              <input value="160" style="width: 100%; box-sizing: border-box; height: 46px; padding: 0 14px; border-radius: 14px; border: 1px solid rgba(27,26,23,0.14); background: transparent; font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #96501F;">BASE</span>
+              <input value="240" style="width: 100%; box-sizing: border-box; height: 46px; padding: 0 14px; border-radius: 14px; border: 1.5px solid #A05C2E; background: rgba(160,92,46,0.05); font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; outline: none;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #A09B90;">MAX</span>
+              <input value="1500" style="width: 100%; box-sizing: border-box; height: 46px; padding: 0 14px; border-radius: 14px; border: 1px solid rgba(27,26,23,0.14); background: transparent; font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+          </div>
+
+          <div style="height: 1px; background: rgba(27,26,23,0.08);"></div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; color: #A09B90;">BASE RATE</span>
+              <span style="display: inline-flex; align-items: center; padding: 4px 11px; border-radius: 999px; background: rgba(160,92,46,0.11); color: #96501F; font-size: 9.5px; font-weight: 500; letter-spacing: 0.12em;">+13% VS MEDIAN</span>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 6px;">
+              <span style="font-family: 'Marcellus', serif; font-size: 38px; color: #1B1A17; line-height: 1;">£240</span>
+              <span style="font-size: 11px; letter-spacing: 0.06em; color: #928D82;">/ NIGHT</span>
+            </div>
+            <div style="position: relative; height: 3px; border-radius: 999px; background: rgba(27,26,23,0.09); margin-top: 6px;">
+              <div style="position: absolute; left: 0; top: 0; height: 100%; width: 35%; border-radius: 999px; background: #A05C2E;"></div>
+              <div style="position: absolute; left: 23%; top: -3.5px; width: 1.5px; height: 10px; background: rgba(27,26,23,0.3);"></div>
+              <div style="position: absolute; left: 65%; top: -3.5px; width: 1.5px; height: 10px; background: rgba(27,26,23,0.3);"></div>
+              <div style="position: absolute; left: 35%; top: -4.5px; width: 12px; height: 12px; border-radius: 50%; background: #A05C2E; border: 2.5px solid #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transform: translateX(-6px);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; color: #A09B90;">£157 P25</span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; color: #96501F;">£213 MED</span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; color: #A09B90;">£313 P75</span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; color: #A09B90;">£396 P90</span>
+            </div>
+          </div>
+
+          <div style="height: 1px; background: rgba(27,26,23,0.08);"></div>
+
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; color: #A09B90;">MARKET DATA</span>
+              <span style="font-size: 11px; color: #A09B90;">21h ago</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1px 1fr; gap: 16px; align-items: center;">
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: #A09B90;">WEEKDAY MED</span>
+                <span style="font-family: 'Marcellus', serif; font-size: 26px; color: #1B1A17; line-height: 1;">£217</span>
+              </div>
+              <div style="width: 1px; height: 40px; background: rgba(27,26,23,0.08);"></div>
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: #A09B90;">WEEKEND MED</span>
+                <span style="font-family: 'Marcellus', serif; font-size: 26px; color: #1B1A17; line-height: 1;">£224</span>
+              </div>
+            </div>
+            <div style="font-size: 11px; line-height: 1.55; color: #A09B90;">329 comps · 1BR entire homes · 2mi radius. Listed prices typically 15–25% above booked ADR.</div>
+          </div>
+        </div>
+
+        <!-- Month summary card -->
+        <div style="background: #1B1A17; border-radius: 24px; padding: 22px 26px; display: flex; flex-direction: column; gap: 14px;">
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; color: rgba(240,237,230,0.5);">JULY AT A GLANCE</span>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; flex-direction: column; gap: 3px;">
+              <span style="font-family: 'Marcellus', serif; font-size: 27px; color: #F0EDE6; line-height: 1;">21<span style="font-size: 15px; color: rgba(240,237,230,0.55);"> / 31</span></span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: rgba(240,237,230,0.5);">NIGHTS BOOKED</span>
+            </div>
+            <div style="width: 1px; height: 40px; background: rgba(240,237,230,0.14);"></div>
+            <div style="display: flex; flex-direction: column; gap: 3px;">
+              <span style="font-family: 'Marcellus', serif; font-size: 27px; color: #DCA983; line-height: 1;">£277</span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: rgba(240,237,230,0.5);">AVG BOOKED RATE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calendar card -->
+      <div style="flex: 1; min-width: 0; background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 24px; padding: 26px 28px 24px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); display: flex; flex-direction: column; gap: 18px;">
+
+        <!-- Month nav + legend -->
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <button style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #1B1A17; font-size: 15px; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05);">‹</button>
+            <span style="font-family: 'Marcellus', serif; font-size: 30px; color: #1B1A17;">July 2026</span>
+            <button style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #1B1A17; font-size: 15px; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05);">›</button>
+          </div>
+          <div style="display: flex; align-items: center; gap: 22px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <div style="width: 14px; height: 14px; border-radius: 5px; background: #1B1A17;"></div>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #A09B90;">BOOKED</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <div style="width: 14px; height: 14px; border-radius: 5px; background: #F3F1EC; border: 1px solid rgba(27,26,23,0.12);"></div>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #A09B90;">OPEN</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <div style="display: flex; gap: 3px;">
+                <div style="width: 5px; height: 5px; border-radius: 50%; background: #A05C2E;"></div>
+                <div style="width: 5px; height: 5px; border-radius: 50%; background: #A05C2E;"></div>
+                <div style="width: 5px; height: 5px; border-radius: 50%; background: #A05C2E;"></div>
+              </div>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #A09B90;">EVENT DEMAND</span>
+            </div>
+            <button style="display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05);">↻ REFRESH</button>
+          </div>
+        </div>
+
+        <!-- Weekday labels -->
+        <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px;">
+          <div style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90; text-align: center;">SUN</div>
+          <div style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90; text-align: center;">MON</div>
+          <div style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90; text-align: center;">TUE</div>
+          <div style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90; text-align: center;">WED</div>
+          <div style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90; text-align: center;">THU</div>
+          <div style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90; text-align: center;">FRI</div>
+          <div style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90; text-align: center;">SAT</div>
+        </div>
+
+        <!-- Day grid -->
+        <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: -6px;">
+          <sc-for list="{{ inkDays }}" as="d" hint-placeholder-count="35">
+            <div onClick="{{ d.select }}" style="min-height: 100px; border-radius: 16px; background: {{ d.bg }}; border: {{ d.border }}; padding: 12px 14px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; transition: box-shadow 0.2s, transform 0.2s;" style-hover="box-shadow: 0 10px 24px -10px rgba(27,26,23,0.3); transform: translateY(-1px);">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: {{ d.numColor }};">{{ d.num }}</span>
+                <div style="display: flex; gap: 3px; padding-top: 4px;">
+                  <sc-for list="{{ d.dots }}" as="dot" hint-placeholder-count="0">
+                    <div style="width: 5px; height: 5px; border-radius: 50%; background: {{ dot }};"></div>
+                  </sc-for>
+                </div>
+              </div>
+              <span style="font-family: 'Marcellus', serif; font-size: 21px; color: {{ d.priceColor }}; line-height: 1;">{{ d.price }}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <!-- Day inspector -->
+        <div style="display: flex; align-items: center; gap: 24px; background: rgba(160,92,46,0.06); border: 1px solid rgba(160,92,46,0.25); border-radius: 18px; padding: 16px 22px;">
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 130px;">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #96501F;">SELECTED</span>
+            <span style="font-family: 'Marcellus', serif; font-size: 21px; color: #1B1A17;">{{ selDayLabel }}</span>
+          </div>
+          <div style="width: 1px; height: 38px; background: rgba(27,26,23,0.12);"></div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #A09B90;">STATUS</span>
+            <span style="font-size: 13.5px; color: #1B1A17;">{{ selDayStatus }}</span>
+          </div>
+          <div style="width: 1px; height: 38px; background: rgba(27,26,23,0.12);"></div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #A09B90;">DEMAND</span>
+            <span style="font-size: 13.5px; color: #1B1A17;">{{ selDayDemand }}</span>
+          </div>
+          <div style="margin-left: auto; display: flex; align-items: center; gap: 10px;">
+            <div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-end; padding-right: 4px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #A09B90;">NIGHTLY RATE</span>
+              <span style="font-family: 'Marcellus', serif; font-size: 23px; color: #1B1A17; line-height: 1;">{{ selDayPrice }}</span>
+            </div>
+            <input placeholder="Override £" style="width: 120px; box-sizing: border-box; height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.18); background: #FAF9F6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 13px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            <button style="height: 44px; padding: 0 22px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: #33312C;">APPLY</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { selDay: 1 };
+  renderVals() {
+    const copper = '#A05C2E';
+    const blue = '#3B5E94';
+    // [dayNum, price, dotCount, dotColor, booked]
+    const days = [
+      [1, 316, 0, copper, false],
+      [2, 294, 0, copper, false],
+      [3, 303, 0, copper, false],
+      [4, 379, 3, copper, true],
+      [5, 282, 3, copper, true],
+      [6, 267, 0, copper, true],
+      [7, 267, 0, copper, true],
+      [8, 282, 3, copper, true],
+      [9, 280, 3, copper, true],
+      [10, 323, 3, copper, true],
+      [11, 306, 3, copper, true],
+      [12, 248, 3, copper, false],
+      [13, 248, 2, blue, false],
+      [14, 272, 2, blue, true],
+      [15, 287, 2, blue, false],
+      [16, 280, 2, blue, false],
+      [17, 294, 3, copper, true],
+      [18, 306, 3, copper, true],
+      [19, 248, 3, copper, true],
+      [20, 234, 3, copper, true],
+      [21, 234, 3, copper, true],
+      [22, 248, 3, copper, true],
+      [23, 258, 3, copper, true],
+      [24, 293, 3, copper, true],
+      [25, 306, 3, copper, true],
+      [26, 248, 2, blue, false],
+      [27, 234, 1, blue, false],
+      [28, 234, 0, blue, false],
+      [29, 248, 1, copper, false],
+      [30, 258, 3, copper, true],
+      [31, 293, 3, copper, true]
+    ];
+    const sel = this.state.selDay;
+    const weekdayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const cells = [];
+    const blank = { num: '', price: '', dots: [], bg: 'transparent', border: '1px solid rgba(27,26,23,0.05)', numColor: '#A09B90', priceColor: '#1B1A17', select: () => {} };
+    for (let i = 0; i < 3; i++) cells.push(blank);
+    let selInfo = null;
+    days.forEach(([num, price, dotCount, dotColor, booked]) => {
+      const isSel = num === sel;
+      if (isSel) selInfo = { num, price, dotCount, booked };
+      cells.push({
+        num: String(num),
+        price: '£' + price,
+        dots: Array(dotCount).fill(booked ? (dotColor === copper ? '#DCA983' : '#96A8EC') : dotColor),
+        bg: booked ? '#1B1A17' : (isSel ? 'rgba(160,92,46,0.08)' : '#F3F1EC'),
+        border: isSel ? '1.5px solid #A05C2E' : (booked ? '1px solid #1B1A17' : '1px solid rgba(27,26,23,0.04)'),
+        numColor: booked ? 'rgba(240,237,230,0.55)' : '#6E6A61',
+        priceColor: booked ? '#F0EDE6' : '#1B1A17',
+        select: () => this.setState({ selDay: num })
+      });
+    });
+    cells.push(blank);
+    const selDate = new Date(2026, 6, selInfo ? selInfo.num : 1);
+    return {
+      inkDays: cells,
+      selDayLabel: weekdayNames[selDate.getDay()] + ' ' + (selInfo ? selInfo.num : 1) + ' July',
+      selDayStatus: selInfo && selInfo.booked ? 'Booked · synced from Airbnb' : 'Open to book',
+      selDayDemand: selInfo && selInfo.dotCount === 3 ? 'High — 3 events nearby' : selInfo && selInfo.dotCount === 2 ? 'Moderate — 2 events nearby' : selInfo && selInfo.dotCount === 1 ? 'Light — 1 event nearby' : 'Typical for season',
+      selDayPrice: '£' + (selInfo ? selInfo.price : 316)
+    };
+  }
+}
+</script>
+</body>
+</html>
