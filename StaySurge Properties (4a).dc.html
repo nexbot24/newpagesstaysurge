@@ -23,7 +23,7 @@
   </template>
 </helmet>
 
-<div style="width: 100%; min-height: 100vh; background: #EAE8E2; display: flex; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box;">
+<div data-screen-label="Properties" style="width: 100%; min-height: 100vh; background: #EAE8E2; display: flex; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box;">
 
   <!-- Icon rail -->
   <div style="width: 84px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 26px 0 26px; gap: 10px; border-right: 1px solid rgba(27,26,23,0.06);">
@@ -46,12 +46,12 @@
       </div>
       <div style="position: absolute; left: -18px; top: 14px; width: 3px; height: 20px; border-radius: 2px; background: #1B1A17;"></div>
     </div>
-    <div title="Integrations" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+    <a href="StaySurge Integrations (10a).dc.html" title="Integrations" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer; text-decoration: none;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
       <div style="display: flex; align-items: center;">
         <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid currentColor;"></div>
         <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid currentColor; margin-left: -4px;"></div>
       </div>
-    </div>
+    </a>
     <div style="margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
       <div title="Sync engine: all channels live" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
         <div style="width: 9px; height: 9px; border-radius: 50%; background: #A05C2E; box-shadow: 0 0 0 5px rgba(160,92,46,0.15);"></div>
@@ -83,7 +83,7 @@
           <div style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E;"></div>
           <span style="font-size: 12px; letter-spacing: 0.02em; color: #6E6A61;">Last updated · Just now</span>
         </div>
-        <button style="display: inline-flex; align-items: center; gap: 10px; height: 50px; padding: 0 28px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; box-shadow: 0 12px 28px -12px rgba(27,26,23,0.6);" style-hover="background: #33312C;">
+        <button onClick="{{ openImport }}" style="display: inline-flex; align-items: center; gap: 10px; height: 50px; padding: 0 28px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; box-shadow: 0 12px 28px -12px rgba(27,26,23,0.6);" style-hover="background: #33312C;">
           <span style="font-size: 16px; font-weight: 300; line-height: 1; letter-spacing: 0;">+</span> IMPORT LISTINGS
         </button>
       </div>
@@ -283,8 +283,215 @@
 
     </div>
   </div>
-</div>
 
+  <!-- Import Listings modal -->
+  <sc-if value="{{ importOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeImport }}" style="position: fixed; inset: 0; background: rgba(27,26,23,0.45); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 32px; box-sizing: border-box;">
+      <div onClick="{{ stopClick }}" style="width: 620px; max-width: 100%; max-height: calc(100vh - 64px); overflow: auto; background: #FAF9F6; border-radius: 28px; box-shadow: 0 40px 90px -30px rgba(27,26,23,0.6); padding: 32px 36px 34px; box-sizing: border-box; display: flex; flex-direction: column; gap: 26px;">
+
+        <!-- Modal header -->
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <h2 style="margin: 0; font-family: 'Marcellus', serif; font-size: 32px; font-weight: 400; color: #1B1A17; line-height: 1;">Import Listings</h2>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: {{ s1Color }};">01 SOURCE</span>
+              <span style="width: 18px; height: 1px; background: rgba(27,26,23,0.2);"></span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: {{ s2Color }};">02 CONNECT</span>
+              <span style="width: 18px; height: 1px; background: rgba(27,26,23,0.2);"></span>
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: {{ s3Color }};">03 LISTINGS</span>
+            </div>
+          </div>
+          <button onClick="{{ closeImport }}" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(27,26,23,0.14); background: transparent; color: #6E6A61; font-size: 16px; cursor: pointer; flex-shrink: 0;" style-hover="background: rgba(27,26,23,0.05); color: #1B1A17;">✕</button>
+        </div>
+
+        <!-- STEP 1: pick channel manager -->
+        <sc-if value="{{ step1 }}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-direction: column; gap: 18px;">
+            <span style="font-size: 13.5px; line-height: 1.55; color: #6E6A61;">Where do your listings live? StaySurge imports them through your channel manager and keeps prices synced from then on.</span>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div onClick="{{ pickGuesty }}" style="display: flex; align-items: center; gap: 16px; padding: 20px; border-radius: 20px; border: {{ guestyBorder }}; background: {{ guestyBg }}; cursor: pointer;" style-hover="border-color: rgba(27,26,23,0.35);">
+                <div style="width: 48px; height: 48px; border-radius: 16px; background: #1B1A17; display: flex; align-items: center; justify-content: center; font-family: 'Marcellus', serif; font-size: 20px; color: #F0EDE6; flex-shrink: 0;">G</div>
+                <div style="display: flex; flex-direction: column; gap: 3px; min-width: 0;">
+                  <span style="font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17;">Guesty</span>
+                  <span style="font-size: 11.5px; color: #8B867B;">Channel manager</span>
+                </div>
+                <div style="margin-left: auto; width: 22px; height: 22px; border-radius: 50%; border: {{ guestyRadioBorder }}; background: {{ guestyRadioBg }}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <div style="width: 8px; height: 8px; border-radius: 50%; background: {{ guestyRadioDot }};"></div>
+                </div>
+              </div>
+              <div onClick="{{ pickHostaway }}" style="display: flex; align-items: center; gap: 16px; padding: 20px; border-radius: 20px; border: {{ hostawayBorder }}; background: {{ hostawayBg }}; cursor: pointer;" style-hover="border-color: rgba(27,26,23,0.35);">
+                <div style="width: 48px; height: 48px; border-radius: 16px; background: #1B1A17; display: flex; align-items: center; justify-content: center; font-family: 'Marcellus', serif; font-size: 20px; color: #F0EDE6; flex-shrink: 0;">H</div>
+                <div style="display: flex; flex-direction: column; gap: 3px; min-width: 0;">
+                  <span style="font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17;">Hostaway</span>
+                  <span style="font-size: 11.5px; color: #8B867B;">Channel manager</span>
+                </div>
+                <div style="margin-left: auto; width: 22px; height: 22px; border-radius: 50%; border: {{ hostawayRadioBorder }}; background: {{ hostawayRadioBg }}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <div style="width: 8px; height: 8px; border-radius: 50%; background: {{ hostawayRadioDot }};"></div>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-radius: 14px; background: rgba(27,26,23,0.04);">
+              <div style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E; flex-shrink: 0;"></div>
+              <span style="font-size: 12px; line-height: 1.5; color: #6E6A61;">Airbnb, Booking.com and VRBO listings all come through your channel manager — you won't connect them separately.</span>
+            </div>
+            <button onClick="{{ toStep2 }}" style="height: 52px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: #33312C;">CONTINUE WITH {{ pmsUpper }} →</button>
+          </div>
+        </sc-if>
+
+        <!-- STEP 2: credentials -->
+        <sc-if value="{{ step2 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 18px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 40px; height: 40px; border-radius: 13px; background: #1B1A17; display: flex; align-items: center; justify-content: center; font-family: 'Marcellus', serif; font-size: 17px; color: #F0EDE6;">{{ pmsInitial }}</div>
+              <span style="font-family: 'Marcellus', serif; font-size: 20px; color: #1B1A17;">{{ pmsName }}</span>
+              <button onClick="{{ backTo1 }}" style="margin-left: auto; height: 34px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #6E6A61; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 9.5px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05); color: #1B1A17;">CHANGE</button>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90;">CLIENT ID</span>
+              <input placeholder="e.g. 0oa4x…" style="width: 100%; box-sizing: border-box; height: 52px; padding: 0 18px; border-radius: 16px; border: 1px solid rgba(27,26,23,0.14); background: #FFFFFF; font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90;">CLIENT SECRET</span>
+              <input type="password" placeholder="••••••••••••" style="width: 100%; box-sizing: border-box; height: 52px; padding: 0 18px; border-radius: 16px; border: 1px solid rgba(27,26,23,0.14); background: #FFFFFF; font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-radius: 14px; background: rgba(160,92,46,0.06); border: 1px solid rgba(160,92,46,0.18);">
+              <div style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E; flex-shrink: 0;"></div>
+              <span style="font-size: 12px; line-height: 1.5; color: #6E6A61;">Find both in {{ pmsName }} → <span style="color: #1B1A17;">Settings → API</span>. StaySurge only reads listings and writes prices — never bookings or guest data.</span>
+            </div>
+            <button onClick="{{ connectFetch }}" style="height: 52px; border-radius: 999px; border: none; background: {{ connectBg }}; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; cursor: {{ connectCursor }};" style-hover="background: #33312C;">{{ connectLabel }}</button>
+          </div>
+        </sc-if>
+
+        <!-- STEP 3: choose listings -->
+        <sc-if value="{{ step3 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 18px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+              <span style="font-size: 13.5px; color: #6E6A61;">Connected to <span style="color: #1B1A17; font-weight: 500;">{{ pmsName }}</span> — we found <span style="color: #1B1A17; font-weight: 500;">4 listings</span>. Choose which to import.</span>
+              <button onClick="{{ selectAll }}" style="border: none; background: transparent; padding: 0; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #96501F; cursor: pointer;" style-hover="color: #A05C2E;">{{ selectAllLabel }}</button>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <sc-for list="{{ found }}" as="f" hint-placeholder-count="4">
+                <div onClick="{{ f.toggle }}" style="display: flex; align-items: center; gap: 16px; padding: 14px 18px; border-radius: 16px; border: {{ f.border }}; background: {{ f.bg }}; cursor: pointer;">
+                  <div style="width: 22px; height: 22px; border-radius: 7px; border: {{ f.boxBorder }}; background: {{ f.boxBg }}; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #F5F3EE; font-size: 12px;">{{ f.check }}</div>
+                  <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1;">
+                    <span style="font-family: 'Marcellus', serif; font-size: 16.5px; color: #1B1A17; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ f.name }}</span>
+                    <span style="font-size: 11.5px; color: #8B867B;">{{ f.meta }}</span>
+                  </div>
+                  <span style="font-family: 'Fragment Mono', monospace; font-size: 11px; color: #6E6A61; white-space: nowrap;">{{ f.price }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <button onClick="{{ doImport }}" style="height: 52px; border-radius: 999px; border: none; background: {{ importBg }}; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; cursor: {{ importCursor }};" style-hover="background: #33312C;">{{ importLabel }}</button>
+          </div>
+        </sc-if>
+
+        <!-- STEP 4: done -->
+        <sc-if value="{{ step4 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 18px 0 6px; text-align: center;">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(160,92,46,0.12); display: flex; align-items: center; justify-content: center; font-size: 24px; color: #A05C2E;">✓</div>
+            <span style="font-family: 'Marcellus', serif; font-size: 26px; color: #1B1A17;">{{ importedCount }} imported &amp; syncing</span>
+            <span style="font-size: 13px; line-height: 1.55; color: #6E6A61; max-width: 380px;">Event-aware pricing is already running. Prices push to {{ pmsName }} within a few minutes.</span>
+            <button onClick="{{ closeImport }}" style="margin-top: 6px; height: 48px; padding: 0 30px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: #33312C;">DONE</button>
+          </div>
+        </sc-if>
+
+      </div>
+    </div>
+  </sc-if>
+</div>
 </x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    importOpen: false,
+    step: 1,
+    pms: 'guesty',
+    connecting: false,
+    found: [
+      { id: 1, name: 'Vibe — Modern Rustic', meta: '1 BR · Greater London', price: '£205 base', on: true },
+      { id: 2, name: 'The Elephant Retreat', meta: '3 BR · Greater London', price: '£420 base', on: true },
+      { id: 3, name: 'Haven — Islington', meta: '1 BR · Greater London', price: '£240 base', on: true },
+      { id: 4, name: 'Fern Cottage — Surrey', meta: '2 BR · Surrey', price: '£180 base', on: false },
+    ],
+  };
+
+  renderVals() {
+    const s = this.state;
+    const pmsName = s.pms === 'guesty' ? 'Guesty' : 'Hostaway';
+    const selBorder = '1.5px solid #A05C2E';
+    const idleBorder = '1px solid rgba(27,26,23,0.14)';
+
+    const found = s.found.map((f) => ({
+      ...f,
+      border: f.on ? '1px solid rgba(160,92,46,0.4)' : '1px solid rgba(27,26,23,0.1)',
+      bg: f.on ? 'rgba(160,92,46,0.05)' : 'transparent',
+      boxBorder: f.on ? 'none' : '1.5px solid rgba(27,26,23,0.25)',
+      boxBg: f.on ? '#A05C2E' : 'transparent',
+      check: f.on ? '✓' : '',
+      toggle: () =>
+        this.setState((st) => ({
+          found: st.found.map((x) => (x.id === f.id ? { ...x, on: !x.on } : x)),
+        })),
+    }));
+    const nSel = s.found.filter((f) => f.on).length;
+    const allOn = nSel === s.found.length;
+
+    const stepColor = (n) => (s.step === n ? '#96501F' : s.step > n ? '#1B1A17' : '#A09B90');
+
+    return {
+      importOpen: s.importOpen,
+      openImport: () => this.setState({ importOpen: true, step: 1, connecting: false }),
+      closeImport: () => this.setState({ importOpen: false }),
+      stopClick: (e) => e.stopPropagation(),
+
+      step1: s.step === 1,
+      step2: s.step === 2,
+      step3: s.step === 3,
+      step4: s.step === 4,
+      s1Color: stepColor(1),
+      s2Color: stepColor(2),
+      s3Color: s.step >= 4 ? '#1B1A17' : stepColor(3),
+
+      pms: s.pms,
+      pmsName,
+      pmsUpper: pmsName.toUpperCase(),
+      pmsInitial: pmsName[0],
+      pickGuesty: () => this.setState({ pms: 'guesty' }),
+      pickHostaway: () => this.setState({ pms: 'hostaway' }),
+      guestyBorder: s.pms === 'guesty' ? selBorder : idleBorder,
+      guestyBg: s.pms === 'guesty' ? 'rgba(160,92,46,0.05)' : 'transparent',
+      guestyRadioBorder: s.pms === 'guesty' ? 'none' : '1.5px solid rgba(27,26,23,0.25)',
+      guestyRadioBg: s.pms === 'guesty' ? '#A05C2E' : 'transparent',
+      guestyRadioDot: s.pms === 'guesty' ? '#FAF9F6' : 'transparent',
+      hostawayBorder: s.pms === 'hostaway' ? selBorder : idleBorder,
+      hostawayBg: s.pms === 'hostaway' ? 'rgba(160,92,46,0.05)' : 'transparent',
+      hostawayRadioBorder: s.pms === 'hostaway' ? 'none' : '1.5px solid rgba(27,26,23,0.25)',
+      hostawayRadioBg: s.pms === 'hostaway' ? '#A05C2E' : 'transparent',
+      hostawayRadioDot: s.pms === 'hostaway' ? '#FAF9F6' : 'transparent',
+
+      toStep2: () => this.setState({ step: 2 }),
+      backTo1: () => this.setState({ step: 1 }),
+      connectFetch: () => {
+        if (s.connecting) return;
+        this.setState({ connecting: true });
+        setTimeout(() => this.setState({ connecting: false, step: 3 }), 1400);
+      },
+      connectLabel: s.connecting ? 'CONNECTING TO ' + pmsName.toUpperCase() + '…' : 'CONNECT & FETCH LISTINGS',
+      connectBg: s.connecting ? 'rgba(27,26,23,0.55)' : '#1B1A17',
+      connectCursor: s.connecting ? 'default' : 'pointer',
+
+      found,
+      selectAll: () =>
+        this.setState((st) => ({ found: st.found.map((x) => ({ ...x, on: !allOn })) })),
+      selectAllLabel: allOn ? 'DESELECT ALL' : 'SELECT ALL',
+      doImport: () => { if (nSel > 0) this.setState({ step: 4 }); },
+      importLabel: nSel === 0 ? 'SELECT AT LEAST ONE LISTING' : 'IMPORT ' + nSel + (nSel === 1 ? ' LISTING' : ' LISTINGS'),
+      importBg: nSel === 0 ? 'rgba(27,26,23,0.35)' : '#1B1A17',
+      importCursor: nSel === 0 ? 'default' : 'pointer',
+      importedCount: nSel + (nSel === 1 ? ' listing' : ' listings'),
+    };
+  }
+}
+</script>
 </body>
 </html>
