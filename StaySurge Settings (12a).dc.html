@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #EAE8E2; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  </style>
+  <template id="__bundler_thumbnail" data-bg-color="#EAE8E2">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect x="440" y="240" width="320" height="320" rx="80" fill="#1B1A17"></rect>
+      <circle cx="600" cy="400" r="70" fill="none" stroke="#DCA983" stroke-width="22"></circle>
+      <circle cx="600" cy="400" r="26" fill="#A05C2E"></circle>
+    </svg>
+  </template>
+</helmet>
+
+<div data-screen-label="Settings" style="width: 100%; min-height: 100vh; background: #EAE8E2; display: flex; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box;">
+
+  <!-- Icon rail -->
+  <div style="width: 84px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 26px 0 26px; gap: 10px; border-right: 1px solid rgba(27,26,23,0.06);">
+    <div style="width: 40px; height: 40px; border-radius: 14px; background: #1B1A17; display: flex; align-items: flex-end; justify-content: center; gap: 3px; padding-bottom: 9px; margin-bottom: 22px;">
+      <div style="width: 4px; height: 8px; border-radius: 2px; background: #A05C2E;"></div>
+      <div style="width: 4px; height: 14px; border-radius: 2px; background: #DCA983;"></div>
+      <div style="width: 4px; height: 19px; border-radius: 2px; background: #F5F3EE;"></div>
+    </div>
+    <a href="StaySurge Dashboard (7a).dc.html" title="Dashboard" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer; text-decoration: none;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+      <div style="display: grid; grid-template-columns: 7px 7px; gap: 3px;">
+        <div style="width: 7px; height: 7px; border-radius: 2px; background: currentColor;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 2px; background: currentColor;"></div>
+      </div>
+    </a>
+    <a href="StaySurge Properties (4a).dc.html" title="Properties" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer; text-decoration: none;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+      <div style="width: 16px; height: 16px; border-radius: 5px; border: 2px solid currentColor; position: relative;">
+        <div style="position: absolute; left: 3.5px; top: 3.5px; width: 5px; height: 5px; border-radius: 2px; background: currentColor;"></div>
+      </div>
+    </a>
+    <a href="StaySurge Integrations (10a).dc.html" title="Integrations" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer; text-decoration: none;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+      <div style="display: flex; align-items: center;">
+        <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid currentColor;"></div>
+        <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid currentColor; margin-left: -4px;"></div>
+      </div>
+    </a>
+    <div style="margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+      <div title="Sync engine: all channels live" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 9px; height: 9px; border-radius: 50%; background: #A05C2E; box-shadow: 0 0 0 5px rgba(160,92,46,0.15);"></div>
+      </div>
+      <div title="Settings" style="width: 48px; height: 48px; border-radius: 16px; background: #FAF9F6; box-shadow: 0 3px 10px rgba(27,26,23,0.08); display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;">
+        <div style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid #A05C2E; position: relative;">
+          <div style="position: absolute; left: 3.5px; top: 3.5px; width: 7px; height: 7px; border-radius: 50%; background: #A05C2E;"></div>
+        </div>
+        <div style="position: absolute; left: -18px; top: 14px; width: 3px; height: 20px; border-radius: 2px; background: #1B1A17;"></div>
+      </div>
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: #1B1A17; color: #F5F3EE; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; letter-spacing: 0.06em;">SS</div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex: 1; display: flex; flex-direction: column; padding: 36px 48px 56px 36px; min-width: 0;">
+
+    <!-- Title -->
+    <div style="display: flex; flex-direction: column; gap: 10px; padding-bottom: 30px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; letter-spacing: 0.02em;">StaySurge</span>
+        <span style="width: 26px; height: 1px; background: rgba(27,26,23,0.25);"></span>
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: #A09B90;">SETTINGS</span>
+      </div>
+      <h1 style="margin: 0; font-family: 'Marcellus', serif; font-size: 56px; font-weight: 400; letter-spacing: 0.005em; color: #1B1A17; line-height: 1;">Settings</h1>
+      <p style="margin: 4px 0 0; font-size: 14px; letter-spacing: 0.01em; color: #6E6A61;">Your account, pricing defaults and notifications.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 1120px; align-items: start;">
+
+      <!-- Profile -->
+      <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 24px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 28px 30px; display: flex; flex-direction: column; gap: 20px;">
+        <h2 style="margin: 0; font-family: 'Marcellus', serif; font-size: 24px; font-weight: 400; color: #1B1A17; line-height: 1;">Profile</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90;">FIRST NAME</span>
+            <input value="John" style="width: 100%; box-sizing: border-box; height: 50px; padding: 0 16px; border-radius: 15px; border: 1px solid rgba(27,26,23,0.14); background: #FFFFFF; font-size: 14px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90;">LAST NAME</span>
+            <input value="Doe" style="width: 100%; box-sizing: border-box; height: 50px; padding: 0 16px; border-radius: 15px; border: 1px solid rgba(27,26,23,0.14); background: #FFFFFF; font-size: 14px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90;">EMAIL ADDRESS</span>
+          <input type="email" value="john@example.com" style="width: 100%; box-sizing: border-box; height: 50px; padding: 0 16px; border-radius: 15px; border: 1px solid rgba(27,26,23,0.14); background: #FFFFFF; font-size: 14px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <button onClick="{{ save }}" style="height: 48px; padding: 0 26px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: #33312C;">{{ saveLabel }}</button>
+          <sc-if value="{{ saved }}" hint-placeholder-val="{{ false }}">
+            <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: #96501F;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E;"></span>Saved</span>
+          </sc-if>
+        </div>
+      </div>
+
+      <!-- Workspace preferences -->
+      <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 24px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 28px 30px; display: flex; flex-direction: column; gap: 20px;">
+        <h2 style="margin: 0; font-family: 'Marcellus', serif; font-size: 24px; font-weight: 400; color: #1B1A17; line-height: 1;">Workspace</h2>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90;">CURRENCY</span>
+          <div style="display: inline-flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(27,26,23,0.05); align-self: flex-start;">
+            <button onClick="{{ curGBP }}" style="height: 38px; padding: 0 20px; border-radius: 999px; border: none; background: {{ gbpBg }}; color: {{ gbpColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; cursor: pointer;">£ GBP</button>
+            <button onClick="{{ curEUR }}" style="height: 38px; padding: 0 20px; border-radius: 999px; border: none; background: {{ eurBg }}; color: {{ eurColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; cursor: pointer;">€ EUR</button>
+            <button onClick="{{ curUSD }}" style="height: 38px; padding: 0 20px; border-radius: 999px; border: none; background: {{ usdBg }}; color: {{ usdColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; cursor: pointer;">$ USD</button>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #A09B90;">TIMEZONE</span>
+          <select style="width: 100%; box-sizing: border-box; height: 50px; padding: 0 14px; border-radius: 15px; border: 1px solid rgba(27,26,23,0.14); background: #FFFFFF; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; color: #1B1A17; outline: none; cursor: pointer;">
+            <option>Europe/London (GMT+1)</option>
+            <option>Europe/Paris (GMT+2)</option>
+            <option>America/New_York (GMT−4)</option>
+            <option>Asia/Dubai (GMT+4)</option>
+          </select>
+          <span style="font-size: 11.5px; color: #A09B90; line-height: 1.5;">Nightly price pushes and reports use this timezone.</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 4px; border-top: 1px solid rgba(27,26,23,0.08); margin-top: 2px;">
+          <div style="display: flex; flex-direction: column; gap: 3px; padding-top: 14px;">
+            <span style="font-size: 13.5px; color: #1B1A17;">Price change confirmations</span>
+            <span style="font-size: 11.5px; color: #A09B90;">Ask before AI rules push a change larger than 25%.</span>
+          </div>
+          <div onClick="{{ confirmToggle }}" style="width: 52px; height: 30px; border-radius: 999px; background: {{ confirmTrack }}; position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0; margin-top: 14px;">
+            <div style="position: absolute; top: 3px; left: {{ confirmKnob }}; width: 24px; height: 24px; border-radius: 50%; background: #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transition: left 0.2s;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notifications -->
+      <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 24px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 28px 30px; display: flex; flex-direction: column; gap: 4px;">
+        <h2 style="margin: 0 0 10px; font-family: 'Marcellus', serif; font-size: 24px; font-weight: 400; color: #1B1A17; line-height: 1;">Notifications</h2>
+        <sc-for list="{{ notifs }}" as="n" hint-placeholder-count="4">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px 0; border-bottom: 1px solid rgba(27,26,23,0.06);">
+            <div style="display: flex; flex-direction: column; gap: 3px;">
+              <span style="font-size: 13.5px; color: #1B1A17;">{{ n.title }}</span>
+              <span style="font-size: 11.5px; color: #A09B90;">{{ n.sub }}</span>
+            </div>
+            <div onClick="{{ n.toggle }}" style="width: 52px; height: 30px; border-radius: 999px; background: {{ n.track }}; position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0;">
+              <div style="position: absolute; top: 3px; left: {{ n.knob }}; width: 24px; height: 24px; border-radius: 50%; background: #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transition: left 0.2s;"></div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- Security -->
+      <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 24px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 28px 30px; display: flex; flex-direction: column; gap: 18px;">
+        <h2 style="margin: 0; font-family: 'Marcellus', serif; font-size: 24px; font-weight: 400; color: #1B1A17; line-height: 1;">Security</h2>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <div style="display: flex; flex-direction: column; gap: 3px;">
+            <span style="font-size: 13.5px; color: #1B1A17;">Password</span>
+            <span style="font-size: 11.5px; color: #A09B90;">Last changed 3 months ago.</span>
+          </div>
+          <button style="height: 40px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05);">CHANGE</button>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 16px; border-top: 1px solid rgba(27,26,23,0.06);">
+          <div style="display: flex; flex-direction: column; gap: 3px;">
+            <span style="font-size: 13.5px; color: #1B1A17;">Two-factor authentication</span>
+            <span style="font-size: 11.5px; color: #A09B90;">Verify with an authenticator app at login.</span>
+          </div>
+          <div onClick="{{ tfaToggle }}" style="width: 52px; height: 30px; border-radius: 999px; background: {{ tfaTrack }}; position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0;">
+            <div style="position: absolute; top: 3px; left: {{ tfaKnob }}; width: 24px; height: 24px; border-radius: 50%; background: #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transition: left 0.2s;"></div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 16px; border-top: 1px solid rgba(27,26,23,0.06);">
+          <div style="display: flex; flex-direction: column; gap: 3px;">
+            <span style="font-size: 13.5px; color: #1B1A17;">Google account</span>
+            <span style="font-size: 11.5px; color: #A09B90;">Connected · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2a404542446a4f524b475a464f04494547">[email&#160;protected]</a></span>
+          </div>
+          <button style="height: 40px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(150,80,31,0.35); background: transparent; color: #96501F; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;" style-hover="background: rgba(150,80,31,0.07);">UNLINK</button>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 16px; border-top: 1px solid rgba(27,26,23,0.06);">
+          <div style="display: flex; flex-direction: column; gap: 3px;">
+            <span style="font-size: 13.5px; color: #1B1A17;">Sign out everywhere</span>
+            <span style="font-size: 11.5px; color: #A09B90;">Ends all active sessions on other devices.</span>
+          </div>
+          <a href="StaySurge Login (11a).dc.html" style="height: 40px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer; display: inline-flex; align-items: center; text-decoration: none; box-sizing: border-box;" style-hover="background: rgba(27,26,23,0.05);">SIGN OUT</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; padding: 24px 6px 0; max-width: 1120px;">
+      <div style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E;"></div>
+      <span style="font-size: 12px; letter-spacing: 0.02em; color: #6E6A61;">Channel manager connections and API credentials now live under <a href="StaySurge Integrations (10a).dc.html" style="color: #96501F; text-decoration: none;" style-hover="color: #A05C2E;">Integrations</a>.</span>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    saved: false,
+    currency: 'GBP',
+    confirmBig: true,
+    tfa: false,
+    notifs: [
+      { id: 'digest', title: 'Weekly performance digest', sub: 'Occupancy, revenue and AI pricing lift, every Monday.', on: true },
+      { id: 'events', title: 'New demand event detected', sub: 'When a Tier 4+ event lands near one of your listings.', on: true },
+      { id: 'occupancy', title: 'Low occupancy warnings', sub: 'When a listing drops below 20% for the next 30 days.', on: true },
+      { id: 'sync', title: 'Sync failures', sub: 'If a price push to your channel manager fails.', on: true },
+    ],
+  };
+
+  renderVals() {
+    const s = this.state;
+    const onTrack = '#A05C2E';
+    const offTrack = 'rgba(27,26,23,0.18)';
+    const seg = (active) => ({ bg: active ? '#1B1A17' : 'transparent', color: active ? '#F0EDE6' : '#6E6A61' });
+
+    const notifs = s.notifs.map((n) => ({
+      ...n,
+      track: n.on ? onTrack : offTrack,
+      knob: n.on ? '25px' : '3px',
+      toggle: () =>
+        this.setState((st) => ({
+          notifs: st.notifs.map((x) => (x.id === n.id ? { ...x, on: !x.on } : x)),
+        })),
+    }));
+
+    return {
+      save: () => {
+        this.setState({ saved: true });
+        setTimeout(() => this.setState({ saved: false }), 2200);
+      },
+      saved: s.saved,
+      saveLabel: s.saved ? 'SAVED ✓' : 'SAVE CHANGES',
+
+      curGBP: () => this.setState({ currency: 'GBP' }),
+      curEUR: () => this.setState({ currency: 'EUR' }),
+      curUSD: () => this.setState({ currency: 'USD' }),
+      gbpBg: seg(s.currency === 'GBP').bg, gbpColor: seg(s.currency === 'GBP').color,
+      eurBg: seg(s.currency === 'EUR').bg, eurColor: seg(s.currency === 'EUR').color,
+      usdBg: seg(s.currency === 'USD').bg, usdColor: seg(s.currency === 'USD').color,
+
+      confirmToggle: () => this.setState((st) => ({ confirmBig: !st.confirmBig })),
+      confirmTrack: s.confirmBig ? onTrack : offTrack,
+      confirmKnob: s.confirmBig ? '25px' : '3px',
+
+      tfaToggle: () => this.setState((st) => ({ tfa: !st.tfa })),
+      tfaTrack: s.tfa ? onTrack : offTrack,
+      tfaKnob: s.tfa ? '25px' : '3px',
+
+      notifs,
+    };
+  }
+}
+</script>
+</body>
+</html>
