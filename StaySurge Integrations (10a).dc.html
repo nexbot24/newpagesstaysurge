@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #EAE8E2; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  </style>
+  <template id="__bundler_thumbnail" data-bg-color="#EAE8E2">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect x="440" y="240" width="320" height="320" rx="80" fill="#1B1A17"></rect>
+      <circle cx="560" cy="400" r="60" fill="none" stroke="#DCA983" stroke-width="24"></circle>
+      <circle cx="650" cy="400" r="60" fill="none" stroke="#A05C2E" stroke-width="24"></circle>
+    </svg>
+  </template>
+</helmet>
+
+<div data-screen-label="Integrations" style="width: 100%; min-height: 100vh; background: #EAE8E2; display: flex; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box;">
+
+  <!-- Icon rail -->
+  <div style="width: 84px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 26px 0 26px; gap: 10px; border-right: 1px solid rgba(27,26,23,0.06);">
+    <div style="width: 40px; height: 40px; border-radius: 14px; background: #1B1A17; display: flex; align-items: flex-end; justify-content: center; gap: 3px; padding-bottom: 9px; margin-bottom: 22px;">
+      <div style="width: 4px; height: 8px; border-radius: 2px; background: #A05C2E;"></div>
+      <div style="width: 4px; height: 14px; border-radius: 2px; background: #DCA983;"></div>
+      <div style="width: 4px; height: 19px; border-radius: 2px; background: #F5F3EE;"></div>
+    </div>
+    <a href="StaySurge Dashboard (7a).dc.html" title="Dashboard" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer; text-decoration: none;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+      <div style="display: grid; grid-template-columns: 7px 7px; gap: 3px;">
+        <div style="width: 7px; height: 7px; border-radius: 2px; background: currentColor;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 2px; background: currentColor;"></div>
+      </div>
+    </a>
+    <a href="StaySurge Properties (4a).dc.html" title="Properties" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer; text-decoration: none;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+      <div style="width: 16px; height: 16px; border-radius: 5px; border: 2px solid currentColor; position: relative;">
+        <div style="position: absolute; left: 3.5px; top: 3.5px; width: 5px; height: 5px; border-radius: 2px; background: currentColor;"></div>
+      </div>
+    </a>
+    <div title="Integrations" style="width: 48px; height: 48px; border-radius: 16px; background: #FAF9F6; box-shadow: 0 3px 10px rgba(27,26,23,0.08); display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;">
+      <div style="display: flex; align-items: center;">
+        <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid #A05C2E;"></div>
+        <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid #A05C2E; margin-left: -4px;"></div>
+      </div>
+      <div style="position: absolute; left: -18px; top: 14px; width: 3px; height: 20px; border-radius: 2px; background: #1B1A17;"></div>
+    </div>
+    <div style="margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+      <div title="Sync engine: all channels live" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 9px; height: 9px; border-radius: 50%; background: #A05C2E; box-shadow: 0 0 0 5px rgba(160,92,46,0.15);"></div>
+      </div>
+      <div title="Settings" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+        <div style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; position: relative;">
+          <div style="position: absolute; left: 3.5px; top: 3.5px; width: 7px; height: 7px; border-radius: 50%; background: currentColor;"></div>
+        </div>
+      </div>
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: #1B1A17; color: #F5F3EE; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; letter-spacing: 0.06em;">SS</div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex: 1; display: flex; flex-direction: column; padding: 36px 48px 44px 36px; min-width: 0;">
+
+    <!-- Title + actions -->
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; padding-bottom: 30px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; letter-spacing: 0.02em;">StaySurge</span>
+          <span style="width: 26px; height: 1px; background: rgba(27,26,23,0.25);"></span>
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: #A09B90;">INTEGRATIONS</span>
+        </div>
+        <h1 style="margin: 0; font-family: 'Marcellus', serif; font-size: 56px; font-weight: 400; letter-spacing: 0.005em; color: #1B1A17; line-height: 1;">Connections</h1>
+        <p style="margin: 4px 0 0; font-size: 14px; letter-spacing: 0.01em; color: #6E6A61; max-width: 560px; line-height: 1.5;">Your channel manager keeps StaySurge in sync with every listing. Prices push automatically — no manual updates.</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; padding-top: 8px;">
+        <button style="display: inline-flex; align-items: center; gap: 10px; height: 50px; padding: 0 28px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; box-shadow: 0 12px 28px -12px rgba(27,26,23,0.6);" style-hover="background: #33312C;">+ ADD CHANNEL MANAGER</button>
+      </div>
+    </div>
+
+    <!-- Connections -->
+    <sc-if value="{{ hasConnections }}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 1060px;">
+        <sc-for list="{{ connections }}" as="c" hint-placeholder-count="1">
+          <div style="background: {{ c.cardBg }}; border: {{ c.cardBorder }}; border-radius: 24px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 28px 30px; display: flex; flex-direction: column;">
+
+            <!-- Header row -->
+            <div style="display: flex; align-items: center; gap: 22px;">
+              <div style="width: 62px; height: 62px; border-radius: 20px; flex-shrink: 0; background: #1B1A17; display: flex; align-items: center; justify-content: center; font-family: 'Marcellus', serif; font-size: 24px; color: #F0EDE6; opacity: {{ c.logoOpacity }};">{{ c.initial }}</div>
+              <div style="display: flex; flex-direction: column; gap: 5px; min-width: 0; flex: 1;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span style="font-family: 'Marcellus', serif; font-size: 26px; color: #1B1A17; line-height: 1;">{{ c.name }}</span>
+                  <span style="display: inline-flex; align-items: center; gap: 7px; padding: 5px 13px; border-radius: 999px; background: {{ c.statusBg }}; font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: {{ c.statusColor }}; white-space: nowrap;"><span style="width: 6px; height: 6px; border-radius: 50%; background: {{ c.statusDot }};"></span>{{ c.status }}</span>
+                </div>
+                <span style="font-size: 12.5px; letter-spacing: 0.02em; color: #8B867B;">Channel manager · {{ c.meta }}</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <button onClick="{{ c.openKeys }}" style="height: 40px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: {{ c.keysBg }}; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05);">{{ c.keysLabel }}</button>
+                <div style="display: flex; align-items: center; gap: 9px; padding: 0 6px;">
+                  <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: #A09B90;">{{ c.toggleLabel }}</span>
+                  <div onClick="{{ c.toggle }}" style="width: 52px; height: 30px; border-radius: 999px; background: {{ c.trackBg }}; position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0;">
+                    <div style="position: absolute; top: 3px; left: {{ c.knobLeft }}; width: 24px; height: 24px; border-radius: 50%; background: #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transition: left 0.2s;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sync facts -->
+            <div style="display: flex; align-items: center; gap: 36px; margin-top: 22px; padding: 18px 22px; border-radius: 18px; background: rgba(27,26,23,0.03);">
+              <div style="display: flex; flex-direction: column; gap: 3px;">
+                <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: #A09B90;">PROPERTIES SYNCED</span>
+                <span style="font-family: 'Marcellus', serif; font-size: 22px; color: #1B1A17; line-height: 1;">{{ c.props }}</span>
+              </div>
+              <div style="width: 1px; height: 34px; background: rgba(27,26,23,0.1);"></div>
+              <div style="display: flex; flex-direction: column; gap: 3px;">
+                <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: #A09B90;">LAST PRICE PUSH</span>
+                <span style="font-family: 'Marcellus', serif; font-size: 22px; color: #1B1A17; line-height: 1;">{{ c.lastPush }}</span>
+              </div>
+              <div style="width: 1px; height: 34px; background: rgba(27,26,23,0.1);"></div>
+              <div style="display: flex; flex-direction: column; gap: 3px;">
+                <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: #A09B90;">CONNECTED</span>
+                <span style="font-family: 'Marcellus', serif; font-size: 22px; color: #1B1A17; line-height: 1;">{{ c.since }}</span>
+              </div>
+              <div style="margin-left: auto; display: flex; align-items: center; gap: 10px;">
+                <sc-if value="{{ c.confirming }}" hint-placeholder-val="{{ false }}">
+                  <span style="font-size: 12px; color: #96501F;">Removes the connection and stops all price syncing.</span>
+                  <button onClick="{{ c.cancelDelete }}" style="height: 38px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05);">KEEP</button>
+                  <button onClick="{{ c.confirmDelete }}" style="height: 38px; padding: 0 18px; border-radius: 999px; border: none; background: #96501F; color: #F5F3EE; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;" style-hover="background: #7C3F15;">DELETE CONNECTION</button>
+                </sc-if>
+                <sc-if value="{{ c.notConfirming }}" hint-placeholder-val="{{ true }}">
+                  <button onClick="{{ c.askDelete }}" style="height: 38px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(150,80,31,0.35); background: transparent; color: #96501F; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;" style-hover="background: rgba(150,80,31,0.07);">DELETE</button>
+                </sc-if>
+              </div>
+            </div>
+
+            <!-- API keys editor -->
+            <sc-if value="{{ c.keysOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; align-items: flex-end; gap: 24px; margin-top: 16px; padding: 20px 22px; border-radius: 18px; background: rgba(160,92,46,0.05); border: 1px solid rgba(160,92,46,0.2); flex-wrap: wrap;">
+                <div style="display: flex; flex-direction: column; gap: 7px; flex: 1; min-width: 220px;">
+                  <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #96501F;">API KEY</span>
+                  <input value="{{ c.apiKey }}" onChange="{{ c.setKey }}" style="width: 100%; box-sizing: border-box; height: 46px; padding: 0 16px; border-radius: 14px; border: 1px solid rgba(27,26,23,0.14); background: #FAF9F6; font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 7px; flex: 1; min-width: 220px;">
+                  <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #96501F;">API SECRET</span>
+                  <input type="password" value="{{ c.apiSecret }}" onChange="{{ c.setSecret }}" style="width: 100%; box-sizing: border-box; height: 46px; padding: 0 16px; border-radius: 14px; border: 1px solid rgba(27,26,23,0.14); background: #FAF9F6; font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+                </div>
+                <button onClick="{{ c.saveKeys }}" style="height: 46px; padding: 0 24px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: #33312C;">SAVE KEYS</button>
+              </div>
+            </sc-if>
+
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <!-- Empty state -->
+    <sc-if value="{{ noConnections }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width: 1060px; border: 1.5px dashed rgba(27,26,23,0.2); border-radius: 24px; padding: 64px 40px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;">
+        <div style="display: flex; align-items: center;">
+          <div style="width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid #A09B90;"></div>
+          <div style="width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid #A09B90; margin-left: -7px;"></div>
+        </div>
+        <span style="font-family: 'Marcellus', serif; font-size: 26px; color: #1B1A17;">No channel manager connected</span>
+        <span style="font-size: 13.5px; line-height: 1.55; color: #6E6A61; max-width: 420px;">Connect your channel manager to start syncing StaySurge prices to your listings automatically.</span>
+        <button onClick="{{ reconnect }}" style="margin-top: 8px; height: 48px; padding: 0 28px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: #33312C;">+ ADD CHANNEL MANAGER</button>
+      </div>
+    </sc-if>
+
+    <div style="display: flex; align-items: center; gap: 10px; padding: 24px 6px 0; max-width: 1060px;">
+      <div style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E;"></div>
+      <span style="font-size: 12px; letter-spacing: 0.02em; color: #6E6A61;">Airbnb, Booking.com and VRBO listings sync through your channel manager — no separate connections needed.</span>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    connections: [
+      {
+        id: 'hostaway',
+        name: 'Hostaway',
+        initial: 'H',
+        meta: 'Syncs Airbnb, Booking.com & VRBO',
+        props: '3 of 3',
+        lastPush: '4 min ago',
+        since: 'Mar 2026',
+        on: true,
+        keysOpen: false,
+        confirming: false,
+        apiKey: 'ha_live_9f2c…e81b',
+        apiSecret: 'sk-hostaway-secret',
+      },
+    ],
+  };
+
+  update(id, patch) {
+    this.setState((s) => ({
+      connections: s.connections.map((c) => (c.id === id ? { ...c, ...patch } : c)),
+    }));
+  }
+
+  renderVals() {
+    const list = this.state.connections;
+    const connections = list.map((c) => ({
+      ...c,
+      cardBg: c.on ? '#FAF9F6' : 'rgba(250,249,246,0.55)',
+      cardBorder: c.keysOpen ? '1.5px solid #A05C2E' : '1px solid rgba(27,26,23,0.05)',
+      logoOpacity: c.on ? '1' : '0.45',
+      status: c.on ? 'SYNC ACTIVE' : 'SYNC PAUSED',
+      statusBg: c.on ? 'rgba(160,92,46,0.11)' : 'rgba(27,26,23,0.07)',
+      statusColor: c.on ? '#96501F' : '#6E6A61',
+      statusDot: c.on ? '#A05C2E' : '#A09B90',
+      toggleLabel: c.on ? 'ENABLED' : 'DISABLED',
+      trackBg: c.on ? '#A05C2E' : 'rgba(27,26,23,0.18)',
+      knobLeft: c.on ? '25px' : '3px',
+      toggle: () => this.update(c.id, { on: !c.on }),
+      keysLabel: c.keysOpen ? 'CLOSE' : 'EDIT KEYS',
+      keysBg: c.keysOpen ? 'rgba(27,26,23,0.06)' : 'transparent',
+      openKeys: () => this.update(c.id, { keysOpen: !c.keysOpen, confirming: false }),
+      saveKeys: () => this.update(c.id, { keysOpen: false }),
+      setKey: (e) => this.update(c.id, { apiKey: e.target.value }),
+      setSecret: (e) => this.update(c.id, { apiSecret: e.target.value }),
+      notConfirming: !c.confirming,
+      askDelete: () => this.update(c.id, { confirming: true, keysOpen: false }),
+      cancelDelete: () => this.update(c.id, { confirming: false }),
+      confirmDelete: () =>
+        this.setState((s) => ({ connections: s.connections.filter((x) => x.id !== c.id) })),
+    }));
+    return {
+      connections,
+      hasConnections: connections.length > 0,
+      noConnections: connections.length === 0,
+      reconnect: () =>
+        this.setState({
+          connections: [
+            {
+              id: 'hostaway', name: 'Hostaway', initial: 'H',
+              meta: 'Syncs Airbnb, Booking.com & VRBO',
+              props: '3 of 3', lastPush: 'Just now', since: 'Jul 2026',
+              on: true, keysOpen: false, confirming: false,
+              apiKey: 'ha_live_9f2c…e81b', apiSecret: 'sk-hostaway-secret',
+            },
+          ],
+        }),
+    };
+  }
+}
+</script>
+</body>
+</html>
