@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #EAE8E2; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  </style>
+  <template id="__bundler_thumbnail" data-bg-color="#EAE8E2">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect x="440" y="240" width="320" height="320" rx="80" fill="#1B1A17"></rect>
+      <rect x="530" y="400" width="28" height="90" rx="10" fill="#A05C2E"></rect>
+      <rect x="586" y="360" width="28" height="130" rx="10" fill="#DCA983"></rect>
+      <rect x="642" y="320" width="28" height="170" rx="10" fill="#F5F3EE"></rect>
+    </svg>
+  </template>
+</helmet>
+
+<div data-screen-label="AI Rules" style="width: 100%; min-height: 100vh; background: #EAE8E2; display: flex; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box;">
+
+  <!-- Icon rail -->
+  <div style="width: 84px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 26px 0 26px; gap: 10px; border-right: 1px solid rgba(27,26,23,0.06);">
+    <div style="width: 40px; height: 40px; border-radius: 14px; background: #1B1A17; display: flex; align-items: flex-end; justify-content: center; gap: 3px; padding-bottom: 9px; margin-bottom: 22px;">
+      <div style="width: 4px; height: 8px; border-radius: 2px; background: #A05C2E;"></div>
+      <div style="width: 4px; height: 14px; border-radius: 2px; background: #DCA983;"></div>
+      <div style="width: 4px; height: 19px; border-radius: 2px; background: #F5F3EE;"></div>
+    </div>
+    <a href="StaySurge Dashboard (7a).dc.html" title="Dashboard" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer; text-decoration: none;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+      <div style="display: grid; grid-template-columns: 7px 7px; gap: 3px;">
+        <div style="width: 7px; height: 7px; border-radius: 2px; background: currentColor;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 7px; height: 7px; border-radius: 2px; background: currentColor;"></div>
+      </div>
+    </a>
+    <a href="StaySurge Properties (4a).dc.html" title="Properties" style="width: 48px; height: 48px; border-radius: 16px; background: #FAF9F6; box-shadow: 0 3px 10px rgba(27,26,23,0.08); display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative; text-decoration: none;">
+      <div style="width: 16px; height: 16px; border-radius: 5px; border: 2px solid #A05C2E; position: relative;">
+        <div style="position: absolute; left: 3.5px; top: 3.5px; width: 5px; height: 5px; border-radius: 2px; background: #A05C2E;"></div>
+      </div>
+      <div style="position: absolute; left: -18px; top: 14px; width: 3px; height: 20px; border-radius: 2px; background: #1B1A17;"></div>
+    </a>
+    <div title="Integrations" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+      <div style="display: flex; align-items: center;">
+        <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid currentColor;"></div>
+        <div style="width: 9px; height: 9px; border-radius: 50%; border: 2px solid currentColor; margin-left: -4px;"></div>
+      </div>
+    </div>
+    <div style="margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+      <div title="Sync engine: all channels live" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 9px; height: 9px; border-radius: 50%; background: #A05C2E; box-shadow: 0 0 0 5px rgba(160,92,46,0.15);"></div>
+      </div>
+      <div title="Settings" style="width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #928D82; cursor: pointer;" style-hover="background: rgba(27,26,23,0.06); color: #1B1A17;">
+        <div style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; position: relative;">
+          <div style="position: absolute; left: 3.5px; top: 3.5px; width: 7px; height: 7px; border-radius: 50%; background: currentColor;"></div>
+        </div>
+      </div>
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: #1B1A17; color: #F5F3EE; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; letter-spacing: 0.06em;">SS</div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex: 1; display: flex; flex-direction: column; padding: 36px 44px 44px 36px; min-width: 0;">
+
+    <!-- Breadcrumb + header -->
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; padding-bottom: 22px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <a href="StaySurge Properties (4a).dc.html" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: #A09B90;" style-hover="color: #1B1A17;">← PROPERTIES</a>
+          <span style="width: 26px; height: 1px; background: rgba(27,26,23,0.25);"></span>
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: #A09B90;">MANAGE PRICING</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <div style="width: 64px; height: 64px; border-radius: 20px; flex-shrink: 0; background: repeating-linear-gradient(45deg, #D9D3DE, #D9D3DE 8px, #CEC6D6 8px, #CEC6D6 16px); display: flex; align-items: center; justify-content: center; font-family: 'Marcellus', serif; font-size: 20px; color: #71657E;">H</div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <h1 style="margin: 0; font-family: 'Marcellus', serif; font-size: 40px; font-weight: 400; letter-spacing: 0.005em; color: #1B1A17; line-height: 1.05;">Haven — Bright &amp; Modern 1BR in Islington</h1>
+            <div style="font-size: 13px; letter-spacing: 0.02em; color: #6E6A61;">1 BR · Greater London, England · ID 563074…</div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding-top: 4px;">
+        <div style="display: flex; align-items: center; gap: 7px; padding-right: 6px;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E;"></div>
+          <span style="font-size: 12px; letter-spacing: 0.02em; color: #6E6A61;">Synced 4 min ago</span>
+        </div>
+        <button style="display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 24px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; box-shadow: 0 12px 28px -12px rgba(27,26,23,0.6);" style-hover="background: #33312C;">⟳ SYNC CALENDAR</button>
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #1B1A17; color: #F5F3EE; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; letter-spacing: 0.06em;">SS</div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div style="display: flex; align-items: center; gap: 8px; padding-bottom: 22px;">
+      <a href="StaySurge Manage Pricing (6a).dc.html" style="display: inline-flex; align-items: center; height: 42px; padding: 0 24px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #6E6A61; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; text-decoration: none; box-sizing: border-box;" style-hover="background: rgba(27,26,23,0.05); color: #1B1A17;">CALENDAR</a>
+      <a href="StaySurge Comps (8a).dc.html" style="display: inline-flex; align-items: center; height: 42px; padding: 0 24px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #6E6A61; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; text-decoration: none; box-sizing: border-box;" style-hover="background: rgba(27,26,23,0.05); color: #1B1A17;">COMPS</a>
+      <button style="height: 42px; padding: 0 24px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;">AI RULES</button>
+    </div>
+
+    <!-- Rules header row -->
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; padding: 8px 4px 26px;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <h2 style="margin: 0; font-family: 'Marcellus', serif; font-size: 32px; font-weight: 400; color: #1B1A17; line-height: 1;">Pricing Rules</h2>
+        <span style="font-size: 13px; letter-spacing: 0.02em; color: #6E6A61;">Applied automatically to every date. Changes update prices instantly.</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; color: #A09B90;">{{ activeCount }} OF 3 ACTIVE</span>
+        <button style="display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05);">⧉ APPLY TO PROPERTIES</button>
+      </div>
+    </div>
+
+    <!-- Rule cards -->
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 1100px;">
+
+      <!-- Weekend Premium -->
+      <div style="background: {{ wkCardBg }}; border: {{ wkCardBorder }}; border-radius: 24px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 24px 28px; display: flex; flex-direction: column; gap: 0;">
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <div style="width: 52px; height: 52px; border-radius: 18px; flex-shrink: 0; background: rgba(160,92,46,0.1); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 16px; height: 16px; border-radius: 50%; background: transparent; box-shadow: 5px -3px 0 0 #A05C2E;"></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1;">
+            <span style="font-family: 'Marcellus', serif; font-size: 21px; color: #1B1A17; line-height: 1.15;">Weekend Premium</span>
+            <span style="font-size: 12.5px; letter-spacing: 0.02em; color: #8B867B;">Separate uplift for Friday and Saturday nights.</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="display: inline-flex; align-items: center; padding: 6px 13px; border-radius: 999px; background: rgba(160,92,46,0.11); font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #96501F; white-space: nowrap; opacity: {{ wkChipOpacity }};">FRI +{{ friPct }}%</span>
+            <span style="display: inline-flex; align-items: center; padding: 6px 13px; border-radius: 999px; background: rgba(160,92,46,0.11); font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #96501F; white-space: nowrap; opacity: {{ wkChipOpacity }};">SAT +{{ satPct }}%</span>
+          </div>
+          <button onClick="{{ wkEdit }}" style="height: 38px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: {{ wkEditBg }}; color: {{ wkEditColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05);">{{ wkEditLabel }}</button>
+          <div onClick="{{ wkToggle }}" style="width: 52px; height: 30px; border-radius: 999px; background: {{ wkTrackBg }}; position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0;">
+            <div style="position: absolute; top: 3px; left: {{ wkKnobLeft }}; width: 24px; height: 24px; border-radius: 50%; background: #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transition: left 0.2s;"></div>
+          </div>
+        </div>
+        <sc-if value="{{ wkOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; align-items: flex-end; gap: 24px; margin-top: 20px; padding: 20px 22px; border-radius: 18px; background: rgba(160,92,46,0.05); border: 1px solid rgba(160,92,46,0.2);">
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #96501F;">FRIDAY UPLIFT %</span>
+              <input value="{{ friPct }}" onChange="{{ setFri }}" style="width: 110px; box-sizing: border-box; height: 46px; padding: 0 14px; border-radius: 14px; border: 1px solid rgba(27,26,23,0.14); background: #FAF9F6; font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #96501F;">SATURDAY UPLIFT %</span>
+              <input value="{{ satPct }}" onChange="{{ setSat }}" style="width: 110px; box-sizing: border-box; height: 46px; padding: 0 14px; border-radius: 14px; border: 1px solid rgba(27,26,23,0.14); background: #FAF9F6; font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+            <span style="font-size: 12px; line-height: 1.5; color: #8B867B; padding-bottom: 12px;">Base £240 → Fri £{{ friPrice }} · Sat £{{ satPrice }}</span>
+            <button onClick="{{ wkEdit }}" style="margin-left: auto; height: 44px; padding: 0 22px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: #33312C;">DONE</button>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- Last-Minute Discount -->
+      <div style="background: {{ lmCardBg }}; border: {{ lmCardBorder }}; border-radius: 24px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 24px 28px; display: flex; flex-direction: column; gap: 0;">
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <div style="width: 52px; height: 52px; border-radius: 18px; flex-shrink: 0; background: rgba(160,92,46,0.1); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 18px; height: 18px; border-radius: 50%; border: 2px solid #A05C2E; position: relative;">
+              <div style="position: absolute; left: 7px; top: 3px; width: 2px; height: 6px; background: #A05C2E;"></div>
+              <div style="position: absolute; left: 7px; top: 8px; width: 5px; height: 2px; background: #A05C2E;"></div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1;">
+            <span style="font-family: 'Marcellus', serif; font-size: 21px; color: #1B1A17; line-height: 1.15;">Last-Minute Discount</span>
+            <span style="font-size: 12.5px; letter-spacing: 0.02em; color: #8B867B;">Price ramps down as check-in approaches, optionally into check-in day.</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="display: inline-flex; align-items: center; padding: 6px 13px; border-radius: 999px; background: rgba(160,92,46,0.11); font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #96501F; white-space: nowrap; opacity: {{ lmChipOpacity }};">{{ lmDays }}D · −{{ lmPct }}%</span>
+            <span style="display: inline-flex; align-items: center; padding: 6px 13px; border-radius: 999px; background: rgba(160,92,46,0.11); font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #96501F; white-space: nowrap; opacity: {{ lmChipOpacity }};">UNTIL {{ lmUntil }}</span>
+          </div>
+          <button onClick="{{ lmEdit }}" style="height: 38px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: {{ lmEditBg }}; color: {{ lmEditColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05);">{{ lmEditLabel }}</button>
+          <div onClick="{{ lmToggle }}" style="width: 52px; height: 30px; border-radius: 999px; background: {{ lmTrackBg }}; position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0;">
+            <div style="position: absolute; top: 3px; left: {{ lmKnobLeft }}; width: 24px; height: 24px; border-radius: 50%; background: #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transition: left 0.2s;"></div>
+          </div>
+        </div>
+        <sc-if value="{{ lmOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; align-items: flex-end; gap: 24px; margin-top: 20px; padding: 20px 22px; border-radius: 18px; background: rgba(160,92,46,0.05); border: 1px solid rgba(160,92,46,0.2); flex-wrap: wrap;">
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #96501F;">START RAMP · DAYS OUT</span>
+              <input value="{{ lmDays }}" onChange="{{ setLmDays }}" style="width: 110px; box-sizing: border-box; height: 46px; padding: 0 14px; border-radius: 14px; border: 1px solid rgba(27,26,23,0.14); background: #FAF9F6; font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #96501F;">MAX DISCOUNT %</span>
+              <input value="{{ lmPct }}" onChange="{{ setLmPct }}" style="width: 110px; box-sizing: border-box; height: 46px; padding: 0 14px; border-radius: 14px; border: 1px solid rgba(27,26,23,0.14); background: #FAF9F6; font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #96501F;">CHECK-IN DAY · UNTIL</span>
+              <input value="{{ lmUntil }}" onChange="{{ setLmUntil }}" style="width: 110px; box-sizing: border-box; height: 46px; padding: 0 14px; border-radius: 14px; border: 1px solid rgba(27,26,23,0.14); background: #FAF9F6; font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+            <div onClick="{{ lmDayToggle }}" style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding-bottom: 12px;">
+              <div style="width: 40px; height: 24px; border-radius: 999px; background: {{ lmDayTrackBg }}; position: relative; transition: background 0.2s;">
+                <div style="position: absolute; top: 3px; left: {{ lmDayKnobLeft }}; width: 18px; height: 18px; border-radius: 50%; background: #FAF9F6; box-shadow: 0 1px 3px rgba(27,26,23,0.3); transition: left 0.2s;"></div>
+              </div>
+              <span style="font-size: 12px; color: #6E6A61;">Keep reducing during check-in day</span>
+            </div>
+            <button onClick="{{ lmEdit }}" style="margin-left: auto; height: 44px; padding: 0 22px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: #33312C;">DONE</button>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- Minimum Stay -->
+      <div style="background: {{ msCardBg }}; border: {{ msCardBorder }}; border-radius: 24px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 24px 28px; display: flex; flex-direction: column; gap: 0;">
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <div style="width: 52px; height: 52px; border-radius: 18px; flex-shrink: 0; background: rgba(160,92,46,0.1); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 14px; height: 11px; border-radius: 3px; background: #A05C2E; position: relative; margin-top: 6px;">
+              <div style="position: absolute; left: 2px; top: -7px; width: 6px; height: 8px; border: 2px solid #A05C2E; border-bottom: none; border-radius: 6px 6px 0 0;"></div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1;">
+            <span style="font-family: 'Marcellus', serif; font-size: 21px; color: #1B1A17; line-height: 1.15;">Minimum Stay</span>
+            <span style="font-size: 12.5px; letter-spacing: 0.02em; color: #8B867B;">Require a minimum number of nights, or a minimum booking value.</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="display: inline-flex; align-items: center; padding: 6px 13px; border-radius: 999px; background: rgba(160,92,46,0.11); font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #96501F; white-space: nowrap; opacity: {{ msChipOpacity }};">{{ msChip }}</span>
+          </div>
+          <button onClick="{{ msEdit }}" style="height: 38px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: {{ msEditBg }}; color: {{ msEditColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.05);">{{ msEditLabel }}</button>
+          <div onClick="{{ msToggle }}" style="width: 52px; height: 30px; border-radius: 999px; background: {{ msTrackBg }}; position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0;">
+            <div style="position: absolute; top: 3px; left: {{ msKnobLeft }}; width: 24px; height: 24px; border-radius: 50%; background: #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transition: left 0.2s;"></div>
+          </div>
+        </div>
+        <sc-if value="{{ msOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; align-items: flex-end; gap: 24px; margin-top: 20px; padding: 20px 22px; border-radius: 18px; background: rgba(160,92,46,0.05); border: 1px solid rgba(160,92,46,0.2);">
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #96501F;">RULE TYPE</span>
+              <div style="display: inline-flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(27,26,23,0.06);">
+                <button onClick="{{ msModeNights }}" style="height: 36px; padding: 0 18px; border-radius: 999px; border: none; background: {{ msNightsBg }}; color: {{ msNightsColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;">MIN NIGHTS</button>
+                <button onClick="{{ msModeValue }}" style="height: 36px; padding: 0 18px; border-radius: 999px; border: none; background: {{ msValueBg }}; color: {{ msValueColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer;">MIN BOOKING £</button>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: #96501F;">{{ msInputLabel }}</span>
+              <input value="{{ msValue }}" onChange="{{ setMsValue }}" style="width: 110px; box-sizing: border-box; height: 46px; padding: 0 14px; border-radius: 14px; border: 1px solid rgba(27,26,23,0.14); background: #FAF9F6; font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+            <button onClick="{{ msEdit }}" style="margin-left: auto; height: 44px; padding: 0 22px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: #33312C;">DONE</button>
+          </div>
+        </sc-if>
+      </div>
+
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; padding: 22px 6px 0;">
+      <div style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E;"></div>
+      <span style="font-size: 12px; letter-spacing: 0.02em; color: #6E6A61;">Rules recalculate every night's price the moment you change them — no republish needed.</span>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    wkOn: true, lmOn: true, msOn: true,
+    open: null, // 'wk' | 'lm' | 'ms'
+    fri: 10, sat: 15,
+    lmDays: 3, lmPct: 40, lmUntil: '14:00', lmDay: true,
+    msMode: 'nights', msNights: 2, msPounds: 300,
+  };
+
+  renderVals() {
+    const s = this.state;
+    const onTrack = '#A05C2E';
+    const offTrack = 'rgba(27,26,23,0.18)';
+    const knob = (on) => (on ? '25px' : '3px');
+    const card = (on, open) => ({
+      bg: on ? '#FAF9F6' : 'rgba(250,249,246,0.55)',
+      border: open ? '1.5px solid #A05C2E' : '1px solid rgba(27,26,23,0.05)',
+    });
+    const toggleOpen = (k) => () => this.setState((st) => ({ open: st.open === k ? null : k }));
+    const num = (fn) => (e) => { const v = parseInt(e.target.value, 10); if (!isNaN(v)) fn(v); };
+
+    const wk = card(s.wkOn, s.open === 'wk');
+    const lm = card(s.lmOn, s.open === 'lm');
+    const ms = card(s.msOn, s.open === 'ms');
+    const seg = (active) => ({
+      bg: active ? '#1B1A17' : 'transparent',
+      color: active ? '#F0EDE6' : '#6E6A61',
+    });
+
+    return {
+      activeCount: [s.wkOn, s.lmOn, s.msOn].filter(Boolean).length,
+
+      // Weekend Premium
+      wkOpen: s.open === 'wk',
+      wkCardBg: wk.bg, wkCardBorder: wk.border,
+      wkChipOpacity: s.wkOn ? '1' : '0.4',
+      wkTrackBg: s.wkOn ? onTrack : offTrack,
+      wkKnobLeft: knob(s.wkOn),
+      wkToggle: () => this.setState((st) => ({ wkOn: !st.wkOn })),
+      wkEdit: toggleOpen('wk'),
+      wkEditLabel: s.open === 'wk' ? 'CLOSE' : 'EDIT',
+      wkEditBg: s.open === 'wk' ? 'rgba(27,26,23,0.06)' : 'transparent',
+      wkEditColor: '#1B1A17',
+      friPct: s.fri, satPct: s.sat,
+      friPrice: Math.round(240 * (1 + s.fri / 100)),
+      satPrice: Math.round(240 * (1 + s.sat / 100)),
+      setFri: num((v) => this.setState({ fri: v })),
+      setSat: num((v) => this.setState({ sat: v })),
+
+      // Last-Minute Discount
+      lmOpen: s.open === 'lm',
+      lmCardBg: lm.bg, lmCardBorder: lm.border,
+      lmChipOpacity: s.lmOn ? '1' : '0.4',
+      lmTrackBg: s.lmOn ? onTrack : offTrack,
+      lmKnobLeft: knob(s.lmOn),
+      lmToggle: () => this.setState((st) => ({ lmOn: !st.lmOn })),
+      lmEdit: toggleOpen('lm'),
+      lmEditLabel: s.open === 'lm' ? 'CLOSE' : 'EDIT',
+      lmEditBg: s.open === 'lm' ? 'rgba(27,26,23,0.06)' : 'transparent',
+      lmEditColor: '#1B1A17',
+      lmDays: s.lmDays, lmPct: s.lmPct, lmUntil: s.lmUntil,
+      setLmDays: num((v) => this.setState({ lmDays: v })),
+      setLmPct: num((v) => this.setState({ lmPct: v })),
+      setLmUntil: (e) => this.setState({ lmUntil: e.target.value }),
+      lmDayTrackBg: s.lmDay ? onTrack : offTrack,
+      lmDayKnobLeft: s.lmDay ? '19px' : '3px',
+      lmDayToggle: () => this.setState((st) => ({ lmDay: !st.lmDay })),
+
+      // Minimum Stay
+      msOpen: s.open === 'ms',
+      msCardBg: ms.bg, msCardBorder: ms.border,
+      msChipOpacity: s.msOn ? '1' : '0.4',
+      msChip: s.msMode === 'nights' ? 'MIN ' + s.msNights + ' NIGHTS' : 'MIN £' + s.msPounds,
+      msTrackBg: s.msOn ? onTrack : offTrack,
+      msKnobLeft: knob(s.msOn),
+      msToggle: () => this.setState((st) => ({ msOn: !st.msOn })),
+      msEdit: toggleOpen('ms'),
+      msEditLabel: s.open === 'ms' ? 'CLOSE' : 'EDIT',
+      msEditBg: s.open === 'ms' ? 'rgba(27,26,23,0.06)' : 'transparent',
+      msEditColor: '#1B1A17',
+      msModeNights: () => this.setState({ msMode: 'nights' }),
+      msModeValue: () => this.setState({ msMode: 'value' }),
+      msNightsBg: seg(s.msMode === 'nights').bg, msNightsColor: seg(s.msMode === 'nights').color,
+      msValueBg: seg(s.msMode === 'value').bg, msValueColor: seg(s.msMode === 'value').color,
+      msInputLabel: s.msMode === 'nights' ? 'NIGHTS' : 'BOOKING £',
+      msValue: s.msMode === 'nights' ? s.msNights : s.msPounds,
+      setMsValue: num((v) => this.setState(s.msMode === 'nights' ? { msNights: v } : { msPounds: v })),
+    };
+  }
+}
+</script>
+</body>
+</html>
