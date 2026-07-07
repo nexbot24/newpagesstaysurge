@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #EAE8E2; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  </style>
+  <template id="__bundler_thumbnail" data-bg-color="#EAE8E2">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect x="440" y="240" width="320" height="320" rx="80" fill="#1B1A17"></rect>
+      <rect x="530" y="400" width="28" height="90" rx="10" fill="#A05C2E"></rect>
+      <rect x="586" y="360" width="28" height="130" rx="10" fill="#DCA983"></rect>
+      <rect x="642" y="320" width="28" height="170" rx="10" fill="#F5F3EE"></rect>
+    </svg>
+  </template>
+</helmet>
+
+<div data-screen-label="Dashboard — Mobile" style="width: 100%; max-width: 430px; margin: 0 auto; min-height: 100vh; background: #EAE8E2; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; position: relative; display: flex; flex-direction: column;">
+
+  <!-- Scrollable content -->
+  <div style="flex: 1; display: flex; flex-direction: column; padding: 14px 16px 110px; box-sizing: border-box;">
+
+    <!-- Top bar -->
+    <div style="display: flex; align-items: center; gap: 12px; padding: 4px 2px 18px;">
+      <div style="width: 38px; height: 38px; border-radius: 13px; background: #1B1A17; display: flex; align-items: flex-end; justify-content: center; gap: 3px; padding-bottom: 8px; box-sizing: border-box; flex-shrink: 0;">
+        <div style="width: 3.5px; height: 7px; border-radius: 2px; background: #A05C2E;"></div>
+        <div style="width: 3.5px; height: 12px; border-radius: 2px; background: #DCA983;"></div>
+        <div style="width: 3.5px; height: 16px; border-radius: 2px; background: #F5F3EE;"></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1;">
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.2em; color: #A09B90;">STAYSURGE · OVERVIEW</span>
+        <span style="font-family: 'Marcellus', serif; font-size: 22px; color: #1B1A17; line-height: 1.1;">Performance</span>
+      </div>
+      <div title="Updated just now" style="display: flex; align-items: center; gap: 6px; flex-shrink: 0; padding: 7px 12px; border-radius: 999px; background: #FAF9F6; border: 1px solid rgba(27,26,23,0.08);">
+        <div style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E;"></div>
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.12em; color: #6E6A61;">LIVE</span>
+      </div>
+      <div style="width: 38px; height: 38px; border-radius: 50%; background: #1B1A17; color: #F5F3EE; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; flex-shrink: 0;">SS</div>
+    </div>
+
+    <!-- Revenue hero -->
+    <div style="background: #1B1A17; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 10px;">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; color: rgba(240,237,230,0.5);">30D REVENUE</span>
+        <span style="display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; background: rgba(240,237,230,0.1); color: #F0EDE6; font-size: 9px; font-weight: 500; letter-spacing: 0.1em; white-space: nowrap;">+12% VS PREV</span>
+      </div>
+      <span style="font-family: 'Marcellus', serif; font-size: 44px; color: #F5F3EE; line-height: 1;">£14,860</span>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid rgba(240,237,230,0.12);">
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: 'Marcellus', serif; font-size: 22px; color: #DCA983; line-height: 1;">+£1,320</span>
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em; color: rgba(240,237,230,0.5);">AI PRICING LIFT · 8.9%</span>
+        </div>
+        <div style="width: 1px; height: 36px; background: rgba(240,237,230,0.14);"></div>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: 'Marcellus', serif; font-size: 22px; color: #F0EDE6; line-height: 1;">37<span style="font-size: 13px; color: rgba(240,237,230,0.55);">%</span></span>
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em; color: rgba(240,237,230,0.5);">AVG OCC · 30D</span>
+        </div>
+        <div style="width: 1px; height: 36px; background: rgba(240,237,230,0.14);"></div>
+        <div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-end;">
+          <span style="display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; background: rgba(220,169,131,0.15); color: #DCA983; font-size: 8.5px; font-weight: 500; letter-spacing: 0.1em; white-space: nowrap;">2 OF 3 LOW</span>
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em; color: rgba(240,237,230,0.5);">OCC WATCH</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions row -->
+    <div style="display: flex; align-items: center; gap: 8px; padding-bottom: 16px;">
+      <button style="flex: 1; height: 48px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.18); background: transparent; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: rgba(27,26,23,0.06);">EXPORT</button>
+      <button style="flex: 2; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; box-shadow: 0 10px 22px -10px rgba(27,26,23,0.6);" style-hover="background: #33312C;">GENERATE REPORT <span style="font-size: 13px; letter-spacing: 0;">→</span></button>
+    </div>
+
+    <!-- Demand events -->
+    <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 20px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 18px 18px 8px; display: flex; flex-direction: column; margin-bottom: 12px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid rgba(27,26,23,0.08);">
+        <h2 style="margin: 0; font-family: 'Marcellus', serif; font-size: 20px; font-weight: 400; color: #1B1A17; line-height: 1;">Demand Events</h2>
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.14em; color: #A09B90;">30 DAYS · TIER {{ tierLabel }}</span>
+      </div>
+      <sc-for list="{{ events }}" as="ev" hint-placeholder-count="4">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid rgba(27,26,23,0.06);">
+          <div style="display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1;">
+            <span style="font-family: 'Marcellus', serif; font-size: 15.5px; color: #1B1A17; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ ev.name }}</span>
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.06em; color: #A09B90;">{{ ev.dates }} · {{ ev.loc }}</span>
+          </div>
+          <span style="display: inline-flex; align-items: center; padding: 4px 9px; border-radius: 999px; background: rgba(27,26,23,0.06); font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.12em; color: #1B1A17; flex-shrink: 0;">T{{ ev.tier }} · {{ ev.listingsShort }}</span>
+          <span style="font-family: 'Marcellus', serif; font-size: 18px; color: #A05C2E; line-height: 1; flex-shrink: 0; min-width: 46px; text-align: right;">{{ ev.uplift }}</span>
+        </div>
+      </sc-for>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 0 11px;">
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.14em; color: #A09B90;">{{ eventCount }} EVENTS SHAPING PRICES</span>
+        <span style="font-size: 10.5px; font-weight: 500; letter-spacing: 0.12em; color: #1B1A17; cursor: pointer;" style-hover="color: #96501F;">CALENDAR →</span>
+      </div>
+    </div>
+
+    <!-- StaySurge Intel -->
+    <sc-if value="{{ showIntel }}" hint-placeholder-val="{{ true }}">
+      <div style="background: #1B1A17; border-radius: 20px; padding: 20px 20px 18px; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 9px;">
+          <div style="display: flex; align-items: flex-end; gap: 2px;">
+            <div style="width: 3px; height: 6px; border-radius: 2px; background: #A05C2E;"></div>
+            <div style="width: 3px; height: 10px; border-radius: 2px; background: #DCA983;"></div>
+            <div style="width: 3px; height: 14px; border-radius: 2px; background: #F5F3EE;"></div>
+          </div>
+          <h2 style="margin: 0; font-family: 'Marcellus', serif; font-size: 20px; font-weight: 400; color: #F5F3EE; line-height: 1;">StaySurge Intel</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; flex-direction: column; gap: 4px; padding: 13px 15px; border-radius: 14px; background: rgba(240,237,230,0.06); border: 1px solid rgba(240,237,230,0.08);">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.16em; color: #DCA983;">WIMBLEDON · TIER 5</span>
+            <span style="font-size: 12px; line-height: 1.5; color: rgba(240,237,230,0.85);">Rates raised on all 3 listings for finals week — avg <span style="color: #F5F3EE; font-weight: 500;">+£46/night</span>.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px; padding: 13px 15px; border-radius: 14px; background: rgba(240,237,230,0.06); border: 1px solid rgba(240,237,230,0.08);">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.16em; color: #DCA983;">WEMBLEY WEEKEND · TIER 4</span>
+            <span style="font-size: 12px; line-height: 1.5; color: rgba(240,237,230,0.85);">2 listings within demand radius — weekend nights lifted <span style="color: #F5F3EE; font-weight: 500;">+16%</span>.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px; padding: 13px 15px; border-radius: 14px; background: rgba(240,237,230,0.06); border: 1px solid rgba(240,237,230,0.08);">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.16em; color: #DCA983;">LOW OCCUPANCY WATCH</span>
+            <span style="font-size: 12px; line-height: 1.5; color: rgba(240,237,230,0.85);">The Elephant Retreat at 0% for 30d — consider lowering the £400 min price.</span>
+          </div>
+        </div>
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.14em; color: rgba(240,237,230,0.45); padding-top: 12px; border-top: 1px solid rgba(240,237,230,0.1);">12 ADJUSTMENTS PUSHED THIS WEEK</span>
+      </div>
+    </sc-if>
+
+  </div>
+
+  <!-- Bottom nav -->
+  <div style="position: fixed; left: 0; right: 0; bottom: 0; max-width: 430px; margin: 0 auto; background: rgba(250,249,246,0.92); backdrop-filter: blur(14px); border-top: 1px solid rgba(27,26,23,0.08); display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; padding: 10px 10px 20px; box-sizing: border-box; z-index: 30;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 6px 0; color: #A05C2E;">
+      <div style="display: grid; grid-template-columns: 6px 6px; gap: 2.5px;">
+        <div style="width: 6px; height: 6px; border-radius: 2px; background: currentColor;"></div>
+        <div style="width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 6px; height: 6px; border-radius: 2px; background: currentColor;"></div>
+      </div>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em;">HOME</span>
+    </div>
+    <a href="StaySurge Properties Mobile (14a).dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 6px 0; text-decoration: none; color: #928D82;" style-hover="color: #1B1A17;">
+      <div style="width: 14px; height: 14px; border-radius: 5px; border: 2px solid currentColor; position: relative; box-sizing: border-box;">
+        <div style="position: absolute; left: 2.5px; top: 2.5px; width: 5px; height: 5px; border-radius: 2px; background: currentColor;"></div>
+      </div>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em;">PROPERTIES</span>
+    </a>
+    <a href="StaySurge Integrations (10a).dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 6px 0; text-decoration: none; color: #928D82;" style-hover="color: #1B1A17;">
+      <div style="display: flex; align-items: center; height: 14px;">
+        <div style="width: 8px; height: 8px; border-radius: 50%; border: 2px solid currentColor;"></div>
+        <div style="width: 8px; height: 8px; border-radius: 50%; border: 2px solid currentColor; margin-left: -4px;"></div>
+      </div>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em;">CHANNELS</span>
+    </a>
+    <a href="StaySurge Settings (12a).dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 6px 0; text-decoration: none; color: #928D82;" style-hover="color: #1B1A17;">
+      <div style="width: 13px; height: 13px; border-radius: 50%; border: 2px solid currentColor; position: relative; box-sizing: border-box;">
+        <div style="position: absolute; left: 2.5px; top: 2.5px; width: 4px; height: 4px; border-radius: 50%; background: currentColor;"></div>
+      </div>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em;">SETTINGS</span>
+    </a>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 390, &quot;height&quot;: 844 },
+  &quot;eventTier&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;3+&quot;, &quot;4+&quot;, &quot;5 only&quot;], &quot;default&quot;: &quot;3+&quot;, &quot;section&quot;: &quot;Demand events&quot;, &quot;tsType&quot;: &quot;string&quot; },
+  &quot;showIntel&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;section&quot;: &quot;Layout&quot;, &quot;tsType&quot;: &quot;boolean&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const all = [
+      { dates: 'JUL 06–13', name: 'Wimbledon Championships — Finals', loc: 'SW19', tier: 5, listings: 3, uplift: '+24%' },
+      { dates: 'JUL 10–12', name: 'Wembley Stadium Concert Weekend', loc: 'Wembley', tier: 4, listings: 2, uplift: '+16%' },
+      { dates: 'JUL 18–20', name: 'London E-Prix', loc: 'Docklands', tier: 3, listings: 1, uplift: '+9%' },
+      { dates: 'JUL 25–27', name: 'London Athletics Meet', loc: 'Stratford', tier: 3, listings: 2, uplift: '+11%' },
+    ];
+    const tierSetting = this.props.eventTier ?? '3+';
+    const min = tierSetting === '5 only' ? 5 : tierSetting === '4+' ? 4 : 3;
+    const events = all.filter((e) => e.tier >= min).map((e) => ({
+      ...e,
+      listingsShort: e.listings + (e.listings === 1 ? ' LSTG' : ' LSTGS'),
+    }));
+    return {
+      events,
+      eventCount: events.length,
+      tierLabel: tierSetting.toUpperCase(),
+      showIntel: this.props.showIntel ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>
