@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #EAE8E2; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  </style>
+  <template id="__bundler_thumbnail" data-bg-color="#EAE8E2">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect x="440" y="240" width="320" height="320" rx="80" fill="#1B1A17"></rect>
+      <circle cx="600" cy="400" r="70" fill="none" stroke="#DCA983" stroke-width="22"></circle>
+      <circle cx="600" cy="400" r="26" fill="#A05C2E"></circle>
+    </svg>
+  </template>
+</helmet>
+
+<div data-screen-label="Settings — Mobile" style="width: 100%; max-width: 430px; margin: 0 auto; min-height: 100vh; background: #EAE8E2; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; display: flex; flex-direction: column;">
+
+  <div style="flex: 1; display: flex; flex-direction: column; padding: 14px 16px 110px; box-sizing: border-box;">
+
+    <!-- Top bar: identity header doubles as profile entry -->
+    <div style="display: flex; align-items: center; gap: 12px; padding: 4px 2px 18px;">
+      <div style="width: 38px; height: 38px; border-radius: 13px; background: #1B1A17; display: flex; align-items: flex-end; justify-content: center; gap: 3px; padding-bottom: 8px; box-sizing: border-box; flex-shrink: 0;">
+        <div style="width: 3.5px; height: 7px; border-radius: 2px; background: #A05C2E;"></div>
+        <div style="width: 3.5px; height: 12px; border-radius: 2px; background: #DCA983;"></div>
+        <div style="width: 3.5px; height: 16px; border-radius: 2px; background: #F5F3EE;"></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1;">
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.2em; color: #A09B90;">STAYSURGE · ACCOUNT</span>
+        <span style="font-family: 'Marcellus', serif; font-size: 22px; color: #1B1A17; line-height: 1.1;">Settings</span>
+      </div>
+    </div>
+
+    <!-- Section tabs -->
+    <div style="display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(27,26,23,0.05); margin-bottom: 14px;">
+      <button onClick="{{ goAccount }}" style="flex: 1; height: 40px; border-radius: 999px; border: none; background: {{ tAccBg }}; color: {{ tAccColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.1em; cursor: pointer;">ACCOUNT</button>
+      <button onClick="{{ goWorkspace }}" style="flex: 1; height: 40px; border-radius: 999px; border: none; background: {{ tWsBg }}; color: {{ tWsColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.1em; cursor: pointer;">WORKSPACE</button>
+      <button onClick="{{ goAlerts }}" style="flex: 1; height: 40px; border-radius: 999px; border: none; background: {{ tAlBg }}; color: {{ tAlColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.1em; cursor: pointer;">ALERTS</button>
+      <button onClick="{{ goSecurity }}" style="flex: 1; height: 40px; border-radius: 999px; border: none; background: {{ tSecBg }}; color: {{ tSecColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.1em; cursor: pointer;">SECURITY</button>
+    </div>
+
+    <sc-if value="{{ tabAccount }}" hint-placeholder-val="{{ true }}">
+    <!-- Profile card -->
+    <div style="background: {{ profileCardBg }}; border: {{ profileCardBorder }}; border-radius: 20px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 16px 18px; display: flex; flex-direction: column; gap: 0; margin-bottom: 10px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background: #1B1A17; color: #F5F3EE; display: flex; align-items: center; justify-content: center; font-family: 'Marcellus', serif; font-size: 18px; flex-shrink: 0;">JD</div>
+        <div style="display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1;">
+          <span style="font-family: 'Marcellus', serif; font-size: 19px; color: #1B1A17; line-height: 1;">John Doe</span>
+          <span style="font-size: 11.5px; color: #8B867B; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e882878086a88d90898598848dc68b8785">[email&#160;protected]</a></span>
+        </div>
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: rgba(160,92,46,0.11); font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.12em; color: #96501F; white-space: nowrap; flex-shrink: 0;"><svg width="10" height="10" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="currentColor" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="currentColor" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="currentColor" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path></svg>GOOGLE</span>
+      </div>
+      <button onClick="{{ profileEdit }}" style="display: flex; align-items: center; justify-content: space-between; width: 100%; border: none; background: transparent; padding: 13px 0 2px; margin-top: 13px; border-top: 1px solid rgba(27,26,23,0.07); cursor: pointer;">
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: #6E6A61;">{{ profileEditLabel }}</span>
+        <span style="font-size: 11px; color: #96501F;">{{ profileChev }}</span>
+      </button>
+      <sc-if value="{{ profileOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 12px; padding: 16px; border-radius: 15px; background: rgba(160,92,46,0.05); border: 1px solid rgba(160,92,46,0.2);">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.16em; color: #96501F;">FIRST NAME</span>
+              <input value="John" style="width: 100%; box-sizing: border-box; height: 48px; padding: 0 14px; border-radius: 13px; border: 1px solid rgba(27,26,23,0.14); background: #FAF9F6; font-size: 14px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.16em; color: #96501F;">LAST NAME</span>
+              <input value="Doe" style="width: 100%; box-sizing: border-box; height: 48px; padding: 0 14px; border-radius: 13px; border: 1px solid rgba(27,26,23,0.14); background: #FAF9F6; font-size: 14px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.16em; color: #96501F;">EMAIL ADDRESS</span>
+            <input type="email" value="john@example.com" style="width: 100%; box-sizing: border-box; height: 48px; padding: 0 14px; border-radius: 13px; border: 1px solid rgba(27,26,23,0.14); background: #FAF9F6; font-size: 14px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+          </div>
+          <button onClick="{{ saveProfile }}" style="height: 48px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer;" style-hover="background: #33312C;">{{ saveLabel }}</button>
+        </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ tabWorkspace }}" hint-placeholder-val="{{ false }}">
+    <!-- Workspace card -->
+    <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 20px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 18px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 10px;">
+      <h2 style="margin: 0; font-family: 'Marcellus', serif; font-size: 18px; font-weight: 400; color: #1B1A17; line-height: 1;">Workspace</h2>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.16em; color: #A09B90;">CURRENCY</span>
+        <div style="display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(27,26,23,0.05);">
+          <button onClick="{{ curGBP }}" style="flex: 1; height: 40px; border-radius: 999px; border: none; background: {{ gbpBg }}; color: {{ gbpColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.08em; cursor: pointer;">£ GBP</button>
+          <button onClick="{{ curEUR }}" style="flex: 1; height: 40px; border-radius: 999px; border: none; background: {{ eurBg }}; color: {{ eurColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.08em; cursor: pointer;">€ EUR</button>
+          <button onClick="{{ curUSD }}" style="flex: 1; height: 40px; border-radius: 999px; border: none; background: {{ usdBg }}; color: {{ usdColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.08em; cursor: pointer;">$ USD</button>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.16em; color: #A09B90;">TIMEZONE</span>
+        <select style="width: 100%; box-sizing: border-box; height: 48px; padding: 0 12px; border-radius: 14px; border: 1px solid rgba(27,26,23,0.14); background: #FFFFFF; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 13.5px; color: #1B1A17; outline: none; cursor: pointer;">
+          <option>Europe/London (GMT+1)</option>
+          <option>Europe/Paris (GMT+2)</option>
+          <option>America/New_York (GMT−4)</option>
+          <option>Asia/Dubai (GMT+4)</option>
+        </select>
+        <span style="font-size: 10.5px; color: #A09B90; line-height: 1.5;">Nightly price pushes and reports use this timezone.</span>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 14px; border-top: 1px solid rgba(27,26,23,0.07);">
+        <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+          <span style="font-size: 13px; color: #1B1A17;">Price change confirmations</span>
+          <span style="font-size: 10.5px; line-height: 1.45; color: #A09B90;">Ask before AI rules push a change larger than 25%.</span>
+        </div>
+        <div onClick="{{ confirmToggle }}" style="width: 52px; height: 30px; border-radius: 999px; background: {{ confirmTrack }}; position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0;">
+          <div style="position: absolute; top: 3px; left: {{ confirmKnob }}; width: 24px; height: 24px; border-radius: 50%; background: #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transition: left 0.2s;"></div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ tabAlerts }}" hint-placeholder-val="{{ false }}">
+    <!-- Notifications card -->
+    <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 20px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 18px 18px 6px; display: flex; flex-direction: column; margin-bottom: 10px;">
+      <h2 style="margin: 0 0 6px; font-family: 'Marcellus', serif; font-size: 18px; font-weight: 400; color: #1B1A17; line-height: 1;">Notifications</h2>
+      <sc-for list="{{ notifs }}" as="n" hint-placeholder-count="4">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 0; border-bottom: 1px solid rgba(27,26,23,0.06);">
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+            <span style="font-size: 13px; color: #1B1A17;">{{ n.title }}</span>
+            <span style="font-size: 10.5px; line-height: 1.45; color: #A09B90;">{{ n.sub }}</span>
+          </div>
+          <div onClick="{{ n.toggle }}" style="width: 52px; height: 30px; border-radius: 999px; background: {{ n.track }}; position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0;">
+            <div style="position: absolute; top: 3px; left: {{ n.knob }}; width: 24px; height: 24px; border-radius: 50%; background: #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transition: left 0.2s;"></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ tabSecurity }}" hint-placeholder-val="{{ false }}">
+    <!-- Security card -->
+    <div style="background: #FAF9F6; border: 1px solid rgba(27,26,23,0.05); border-radius: 20px; box-shadow: 0 2px 10px rgba(27,26,23,0.03); padding: 18px; display: flex; flex-direction: column; gap: 0; margin-bottom: 10px;">
+      <h2 style="margin: 0 0 4px; font-family: 'Marcellus', serif; font-size: 18px; font-weight: 400; color: #1B1A17; line-height: 1;">Security</h2>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 0; border-bottom: 1px solid rgba(27,26,23,0.06);">
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-size: 13px; color: #1B1A17;">Password</span>
+          <span style="font-size: 10.5px; color: #A09B90;">Last changed 3 months ago.</span>
+        </div>
+        <button style="height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 9.5px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer; flex-shrink: 0;" style-hover="background: rgba(27,26,23,0.05);">CHANGE</button>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 0; border-bottom: 1px solid rgba(27,26,23,0.06);">
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-size: 13px; color: #1B1A17;">Two-factor authentication</span>
+          <span style="font-size: 10.5px; color: #A09B90;">Verify with an authenticator app at login.</span>
+        </div>
+        <div onClick="{{ tfaToggle }}" style="width: 52px; height: 30px; border-radius: 999px; background: {{ tfaTrack }}; position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0;">
+          <div style="position: absolute; top: 3px; left: {{ tfaKnob }}; width: 24px; height: 24px; border-radius: 50%; background: #FAF9F6; box-shadow: 0 1px 4px rgba(27,26,23,0.3); transition: left 0.2s;"></div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 0;">
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-size: 13px; color: #1B1A17;">Google account</span>
+          <span style="font-size: 10.5px; color: #A09B90;">Connected · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="117b7e797f517469707c617d743f727e7c">[email&#160;protected]</a></span>
+        </div>
+        <button style="height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(150,80,31,0.35); background: transparent; color: #96501F; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 9.5px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer; flex-shrink: 0;" style-hover="background: rgba(150,80,31,0.07);">UNLINK</button>
+      </div>
+    </div>
+
+    <!-- Sign out -->
+    <a href="StaySurge Login (11a).dc.html" style="display: flex; align-items: center; justify-content: center; height: 50px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.16); background: transparent; color: #1B1A17; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; text-decoration: none; box-sizing: border-box;" style-hover="background: rgba(27,26,23,0.05);">SIGN OUT EVERYWHERE</a>
+    </sc-if>
+
+    <!-- Footer note -->
+    <div style="display: flex; align-items: flex-start; gap: 9px; padding: 16px 4px 0;">
+      <div style="width: 6px; height: 6px; border-radius: 50%; background: #A05C2E; flex-shrink: 0; margin-top: 5px;"></div>
+      <span style="font-size: 11.5px; line-height: 1.55; color: #6E6A61;">Channel manager connections and API credentials live under <a href="StaySurge Connections Mobile (16a).dc.html" style="color: #96501F; text-decoration: none;" style-hover="color: #A05C2E;">Channels</a>.</span>
+    </div>
+
+  </div>
+
+  <!-- Bottom nav -->
+  <div style="position: fixed; left: 0; right: 0; bottom: 0; max-width: 430px; margin: 0 auto; background: rgba(250,249,246,0.92); backdrop-filter: blur(14px); border-top: 1px solid rgba(27,26,23,0.08); display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; padding: 10px 10px 20px; box-sizing: border-box; z-index: 30;">
+    <a href="StaySurge Dashboard Mobile (15a).dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 6px 0; text-decoration: none; color: #928D82;" style-hover="color: #1B1A17;">
+      <div style="display: grid; grid-template-columns: 6px 6px; gap: 2.5px;">
+        <div style="width: 6px; height: 6px; border-radius: 2px; background: currentColor;"></div>
+        <div style="width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.5;"></div>
+        <div style="width: 6px; height: 6px; border-radius: 2px; background: currentColor;"></div>
+      </div>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em;">HOME</span>
+    </a>
+    <a href="StaySurge Properties Mobile (14a).dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 6px 0; text-decoration: none; color: #928D82;" style-hover="color: #1B1A17;">
+      <div style="width: 14px; height: 14px; border-radius: 5px; border: 2px solid currentColor; position: relative; box-sizing: border-box;">
+        <div style="position: absolute; left: 2.5px; top: 2.5px; width: 5px; height: 5px; border-radius: 2px; background: currentColor;"></div>
+      </div>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em;">PROPERTIES</span>
+    </a>
+    <a href="StaySurge Connections Mobile (16a).dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 6px 0; text-decoration: none; color: #928D82;" style-hover="color: #1B1A17;">
+      <div style="display: flex; align-items: center; height: 14px;">
+        <div style="width: 8px; height: 8px; border-radius: 50%; border: 2px solid currentColor;"></div>
+        <div style="width: 8px; height: 8px; border-radius: 50%; border: 2px solid currentColor; margin-left: -4px;"></div>
+      </div>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em;">CHANNELS</span>
+    </a>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 6px 0; color: #A05C2E;">
+      <div style="width: 13px; height: 13px; border-radius: 50%; border: 2px solid currentColor; position: relative; box-sizing: border-box;">
+        <div style="position: absolute; left: 2.5px; top: 2.5px; width: 4px; height: 4px; border-radius: 50%; background: currentColor;"></div>
+      </div>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em;">SETTINGS</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 390, &quot;height&quot;: 844 }
+}">
+class Component extends DCLogic {
+  state = {
+    tab: 'account',
+    profileOpen: false,
+    saved: false,
+    currency: 'GBP',
+    confirmBig: true,
+    tfa: false,
+    notifs: [
+      { id: 'digest', title: 'Weekly performance digest', sub: 'Occupancy, revenue and AI lift, every Monday.', on: true },
+      { id: 'events', title: 'New demand event detected', sub: 'When a Tier 4+ event lands near a listing.', on: true },
+      { id: 'occupancy', title: 'Low occupancy warnings', sub: 'When a listing drops below 20% for 30 days.', on: true },
+      { id: 'sync', title: 'Sync failures', sub: 'If a price push to your channel manager fails.', on: true },
+    ],
+  };
+
+  renderVals() {
+    const s = this.state;
+    const onTrack = '#A05C2E';
+    const offTrack = 'rgba(27,26,23,0.18)';
+    const seg = (active) => ({ bg: active ? '#1B1A17' : 'transparent', color: active ? '#F0EDE6' : '#6E6A61' });
+
+    const notifs = s.notifs.map((n) => ({
+      ...n,
+      track: n.on ? onTrack : offTrack,
+      knob: n.on ? '25px' : '3px',
+      toggle: () =>
+        this.setState((st) => ({
+          notifs: st.notifs.map((x) => (x.id === n.id ? { ...x, on: !x.on } : x)),
+        })),
+    }));
+
+    const tabSeg = (k) => seg(s.tab === k);
+
+    return {
+      tabAccount: s.tab === 'account',
+      tabWorkspace: s.tab === 'workspace',
+      tabAlerts: s.tab === 'alerts',
+      tabSecurity: s.tab === 'security',
+      goAccount: () => this.setState({ tab: 'account' }),
+      goWorkspace: () => this.setState({ tab: 'workspace' }),
+      goAlerts: () => this.setState({ tab: 'alerts' }),
+      goSecurity: () => this.setState({ tab: 'security' }),
+      tAccBg: tabSeg('account').bg, tAccColor: tabSeg('account').color,
+      tWsBg: tabSeg('workspace').bg, tWsColor: tabSeg('workspace').color,
+      tAlBg: tabSeg('alerts').bg, tAlColor: tabSeg('alerts').color,
+      tSecBg: tabSeg('security').bg, tSecColor: tabSeg('security').color,
+
+      profileOpen: s.profileOpen,
+      profileEdit: () => this.setState((st) => ({ profileOpen: !st.profileOpen })),
+      profileEditLabel: s.profileOpen ? 'CLOSE' : 'EDIT PROFILE',
+      profileChev: s.profileOpen ? '▲' : '▼',
+      profileCardBg: '#FAF9F6',
+      profileCardBorder: s.profileOpen ? '1.5px solid #A05C2E' : '1px solid rgba(27,26,23,0.05)',
+      saveProfile: () => {
+        this.setState({ saved: true });
+        setTimeout(() => this.setState({ saved: false, profileOpen: false }), 1100);
+      },
+      saveLabel: s.saved ? 'SAVED ✓' : 'SAVE CHANGES',
+
+      curGBP: () => this.setState({ currency: 'GBP' }),
+      curEUR: () => this.setState({ currency: 'EUR' }),
+      curUSD: () => this.setState({ currency: 'USD' }),
+      gbpBg: seg(s.currency === 'GBP').bg, gbpColor: seg(s.currency === 'GBP').color,
+      eurBg: seg(s.currency === 'EUR').bg, eurColor: seg(s.currency === 'EUR').color,
+      usdBg: seg(s.currency === 'USD').bg, usdColor: seg(s.currency === 'USD').color,
+
+      confirmToggle: () => this.setState((st) => ({ confirmBig: !st.confirmBig })),
+      confirmTrack: s.confirmBig ? onTrack : offTrack,
+      confirmKnob: s.confirmBig ? '25px' : '3px',
+
+      tfaToggle: () => this.setState((st) => ({ tfa: !st.tfa })),
+      tfaTrack: s.tfa ? onTrack : offTrack,
+      tfaKnob: s.tfa ? '25px' : '3px',
+
+      notifs,
+    };
+  }
+}
+</script>
+</body>
+</html>
