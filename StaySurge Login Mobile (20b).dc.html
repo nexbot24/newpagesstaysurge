@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #1B1A17; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  </style>
+  <template id="__bundler_thumbnail" data-bg-color="#1B1A17">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect x="440" y="240" width="320" height="320" rx="80" fill="#EAE8E2"></rect>
+      <rect x="530" y="400" width="28" height="90" rx="10" fill="#A05C2E"></rect>
+      <rect x="586" y="360" width="28" height="130" rx="10" fill="#DCA983"></rect>
+      <rect x="642" y="320" width="28" height="170" rx="10" fill="#1B1A17"></rect>
+    </svg>
+  </template>
+</helmet>
+
+<div data-screen-label="Log in — Mobile (alt)" style="width: 100%; max-width: 430px; margin: 0 auto; min-height: 100vh; background: #1B1A17; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; display: flex; flex-direction: column;">
+
+  <!-- Content -->
+  <div style="flex: 1; display: flex; flex-direction: column; padding: 30px 24px 28px; box-sizing: border-box;">
+
+    <!-- Brand row (like desktop panel header) -->
+    <div style="display: flex; align-items: center; gap: 13px; padding-bottom: 26px;">
+      <div style="width: 42px; height: 42px; border-radius: 15px; background: rgba(240,237,230,0.07); border: 1px solid rgba(240,237,230,0.1); display: flex; align-items: flex-end; justify-content: center; gap: 3px; padding-bottom: 10px; box-sizing: border-box;">
+        <div style="width: 4px; height: 8px; border-radius: 2px; background: #A05C2E;"></div>
+        <div style="width: 4px; height: 13px; border-radius: 2px; background: #DCA983;"></div>
+        <div style="width: 4px; height: 18px; border-radius: 2px; background: #F5F3EE;"></div>
+      </div>
+      <span style="font-family: 'Marcellus', serif; font-size: 21px; color: #F5F3EE; letter-spacing: 0.02em;">StaySurge</span>
+    </div>
+
+    <!-- Headline block (desktop brand panel, condensed) -->
+    <div style="display: flex; flex-direction: column; gap: 14px; padding-bottom: 22px;">
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.24em; color: #DCA983;">EVENT-AWARE PRICING</span>
+      <h1 style="margin: 0; font-family: 'Marcellus', serif; font-size: 34px; font-weight: 400; color: #F5F3EE; line-height: 1.16; letter-spacing: 0.005em;">Prices that know what's on tonight.</h1>
+      <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(240,237,230,0.6);">StaySurge watches concerts, matches and conferences near your listings — and pushes the right nightly rate to every channel, automatically.</p>
+    </div>
+
+    <!-- Live demand ticker -->
+    <div style="display: flex; align-items: center; gap: 10px; padding: 13px 18px; border-radius: 999px; background: rgba(240,237,230,0.05); border: 1px solid rgba(240,237,230,0.09); margin-bottom: 24px;">
+      <span style="width: 7px; height: 7px; border-radius: 50%; background: #A05C2E; flex-shrink: 0; box-shadow: 0 0 0 4px rgba(160,92,46,0.2);"></span>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: rgba(240,237,230,0.65); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ tickerText }}</span>
+    </div>
+
+    <!-- Form card -->
+    <div style="background: #F5F3EE; border-radius: 26px; padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 70px -30px rgba(0,0,0,0.8);">
+
+      <!-- Log in / Create account switch -->
+      <div style="display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(27,26,23,0.06);">
+        <button onClick="{{ goLogin }}" style="flex: 1; height: 42px; border-radius: 999px; border: none; background: {{ tabLoginBg }}; color: {{ tabLoginColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer; box-shadow: {{ tabLoginShadow }};">LOG IN</button>
+        <button onClick="{{ goSignup }}" style="flex: 1; height: 42px; border-radius: 999px; border: none; background: {{ tabSignupBg }}; color: {{ tabSignupColor }}; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; cursor: pointer; box-shadow: {{ tabSignupShadow }};">CREATE ACCOUNT</button>
+      </div>
+
+      <a href="StaySurge Dashboard Mobile (15a).dc.html" style="display: flex; align-items: center; justify-content: center; gap: 11px; height: 52px; border-radius: 999px; border: 1px solid rgba(27,26,23,0.18); background: #FFFFFF; color: #1B1A17; font-size: 13.5px; font-weight: 500; letter-spacing: 0.01em; cursor: pointer; text-decoration: none; box-shadow: 0 2px 8px rgba(27,26,23,0.05);" style-hover="background: #FAF9F6;">
+        <svg width="17" height="17" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path></svg>
+        {{ googleLabel }}
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="flex: 1; height: 1px; background: rgba(27,26,23,0.12);"></div>
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.18em; color: #A09B90;">OR WITH EMAIL</span>
+        <div style="flex: 1; height: 1px; background: rgba(27,26,23,0.12);"></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <sc-if value="{{ isSignup }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: #A09B90;">FULL NAME</span>
+            <input autoComplete="name" placeholder="John Doe" style="width: 100%; box-sizing: border-box; height: 52px; padding: 0 18px; border-radius: 16px; border: 1px solid rgba(27,26,23,0.14); background: #FFFFFF; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+          </div>
+        </sc-if>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: #A09B90;">EMAIL</span>
+          <input type="email" inputMode="email" autoComplete="email" placeholder="you@company.com" style="width: 100%; box-sizing: border-box; height: 52px; padding: 0 18px; border-radius: 16px; border: 1px solid rgba(27,26,23,0.14); background: #FFFFFF; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; align-items: baseline; justify-content: space-between;">
+            <span style="font-family: 'Fragment Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: #A09B90;">PASSWORD</span>
+            <sc-if value="{{ isLogin }}" hint-placeholder-val="{{ true }}">
+              <span style="font-size: 12px; color: #96501F; cursor: pointer; padding: 4px 0;" style-hover="color: #A05C2E;">Forgot?</span>
+            </sc-if>
+          </div>
+          <div style="position: relative;">
+            <input type="{{ pwType }}" autoComplete="{{ pwAutoComplete }}" placeholder="••••••••" style="width: 100%; box-sizing: border-box; height: 52px; padding: 0 52px 0 18px; border-radius: 16px; border: 1px solid rgba(27,26,23,0.14); background: #FFFFFF; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; color: #1B1A17; outline: none;" style-focus="border-color: #A05C2E;">
+            <button onClick="{{ togglePw }}" title="Show / hide password" style="position: absolute; right: 6px; top: 6px; width: 40px; height: 40px; border-radius: 50%; border: none; background: transparent; color: {{ pwEyeColor }}; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: rgba(27,26,23,0.05);">
+              <div style="width: 16px; height: 10px; border: 1.5px solid currentColor; border-radius: 100% / 100%; display: flex; align-items: center; justify-content: center;">
+                <div style="width: 4px; height: 4px; border-radius: 50%; background: currentColor;"></div>
+              </div>
+            </button>
+          </div>
+          <sc-if value="{{ isSignup }}" hint-placeholder-val="{{ false }}">
+            <span style="font-size: 10.5px; line-height: 1.5; color: #A09B90;">At least 8 characters.</span>
+          </sc-if>
+        </div>
+      </div>
+
+      <a href="StaySurge Dashboard Mobile (15a).dc.html" style="display: flex; align-items: center; justify-content: center; gap: 10px; height: 52px; border-radius: 999px; border: none; background: #1B1A17; color: #F0EDE6; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; cursor: pointer; text-decoration: none; box-shadow: 0 12px 28px -12px rgba(27,26,23,0.6);" style-hover="background: #33312C;">{{ ctaLabel }} <span style="font-size: 14px; letter-spacing: 0;">→</span></a>
+
+      <sc-if value="{{ isSignup }}" hint-placeholder-val="{{ false }}">
+        <span style="text-align: center; font-size: 10.5px; line-height: 1.5; color: #A09B90;">14-day free trial · no card needed. By continuing you agree to the <span style="color: #96501F; cursor: pointer;">Terms</span>.</span>
+      </sc-if>
+
+    </div>
+
+    <span style="text-align: center; font-family: 'Fragment Mono', monospace; font-size: 8px; letter-spacing: 0.16em; color: rgba(240,237,230,0.25); margin-top: auto; padding-top: 22px;">© 2026 STAYSURGE · LONDON</span>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 390, &quot;height&quot;: 844 }
+}">
+class Component extends DCLogic {
+  state = { mode: 'login', showPw: false, tick: 0 };
+
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState((s) => ({ tick: s.tick + 1 })), 3200);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  renderVals() {
+    const s = this.state;
+    const lines = [
+      'TONIGHT · WIMBLEDON FINALS — LONDON RATES +24%',
+      'FRI–SUN · WEMBLEY CONCERTS — WEEKENDS +16%',
+      'THIS MONTH · +£1,320 ADDED BY EVENT DEMAND',
+    ];
+    const isLogin = s.mode === 'login';
+    const tab = (active) => ({
+      bg: active ? '#1B1A17' : 'transparent',
+      color: active ? '#F0EDE6' : '#6E6A61',
+      shadow: active ? '0 2px 8px rgba(27,26,23,0.25)' : 'none',
+    });
+    return {
+      tickerText: lines[s.tick % lines.length],
+      isLogin,
+      isSignup: !isLogin,
+      goLogin: () => this.setState({ mode: 'login' }),
+      goSignup: () => this.setState({ mode: 'signup' }),
+      tabLoginBg: tab(isLogin).bg, tabLoginColor: tab(isLogin).color, tabLoginShadow: tab(isLogin).shadow,
+      tabSignupBg: tab(!isLogin).bg, tabSignupColor: tab(!isLogin).color, tabSignupShadow: tab(!isLogin).shadow,
+      googleLabel: isLogin ? 'Continue with Google' : 'Sign up with Google',
+      ctaLabel: isLogin ? 'LOG IN' : 'CREATE ACCOUNT',
+      pwType: s.showPw ? 'text' : 'password',
+      pwAutoComplete: isLogin ? 'current-password' : 'new-password',
+      pwEyeColor: s.showPw ? '#A05C2E' : '#A09B90',
+      togglePw: () => this.setState((st) => ({ showPw: !st.showPw })),
+    };
+  }
+}
+</script>
+</body>
+</html>
