@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; height:100%; }
+  body { font-family:'Poppins', 'Century Gothic', 'Helvetica Neue', sans-serif; background:#DC5C28; color:#201E1B; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  a { color:#DC5C28; text-decoration:none; }
+  a:hover { color:#B7451C; text-decoration:underline; }
+  ::-webkit-scrollbar { width:8px; height:8px; }
+  ::-webkit-scrollbar-thumb { background:rgba(0,0,0,0.15); border-radius:99px; }
+  ::-webkit-scrollbar-track { background:transparent; }
+  textarea:focus, input:focus { outline:none; }
+</style>
+</helmet>
+
+<div style="height:100vh; overflow-x:auto; overflow-y:hidden; background:#DC5C28">
+<div style="display:flex; gap:14px; height:100vh; min-width:1300px; overflow:hidden; padding:14px; font-size:13px; line-height:1.5">
+
+  <!-- ============ LEFT NAV ============ -->
+  <nav data-screen-label="Navigation" style="width:196px; flex-shrink:0; display:flex; flex-direction:column; padding:10px 2px">
+    <div style="padding:4px 12px 22px">
+      <img src="assets/hostaway-logo-white.png" alt="Hostaway" style="height:24px; width:auto; display:block">
+    </div>
+    <div style="flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:20px">
+      <sc-for list="{{ navSections }}" as="sec" hint-placeholder-count="3">
+        <div style="display:flex; flex-direction:column; gap:3px">
+          <sc-if value="{{ sec.title }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:9.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55); padding:0 12px 5px">{{ sec.title }}</div>
+          </sc-if>
+          <sc-for list="{{ sec.items }}" as="ni" hint-placeholder-count="4">
+            <div onClick="{{ ni.onClick }}" style-hover="background:rgba(255,255,255,0.14)" style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding:7px 12px; border-radius:99px; cursor:pointer; background:{{ ni.bg }}; color:{{ ni.color }}; font-weight:{{ ni.weight }}">
+              <span style="font-size:12.5px">{{ ni.label }}</span>
+              <sc-if value="{{ ni.badge }}" hint-placeholder-val="{{ false }}">
+                <span style="font-size:10px; font-weight:600; padding:1px 8px; border-radius:99px; background:{{ ni.badgeBg }}; color:#FFFFFF">{{ ni.badge }}</span>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px; padding:12px 8px 4px">
+      <div style="width:30px; height:36px; border-radius:15px 15px 6px 6px; background:rgba(255,255,255,0.22); color:#FFFFFF; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600">JD</div>
+      <div>
+        <div style="font-size:12px; font-weight:600; line-height:1.3; color:#FFFFFF">Josh Daniel</div>
+        <div style="font-size:10.5px; color:rgba(255,255,255,0.65)">Empire Stays</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ CONVERSATION LIST ============ -->
+  <section data-screen-label="Conversation list" style="width:352px; flex-shrink:0; display:flex; flex-direction:column; background:#FBFAF8; border-radius:24px; box-shadow:0 1px 2px rgba(32,30,27,0.03), 0 10px 30px rgba(32,30,27,0.05); overflow:hidden">
+    <div style="padding:20px 18px 0">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px">
+        <div>
+          <div style="font-family:'Pacifico', cursive; font-size:19px; color:#DC5C28; line-height:1.3">{{ greeting }}</div>
+          <div style="font-size:11px; color:#ABA79E; margin-top:1px">{{ needsReplyLabel }}</div>
+        </div>
+        <div onClick="{{ openPalette }}" style-hover="background:#EDEAE4" style="display:flex; align-items:center; gap:8px; background:#F1EFEA; border-radius:99px; padding:7px 13px; cursor:pointer; color:#8A867F; font-size:11.5px">
+          <span>⌕ Search</span>
+          <span style="font-size:9.5px; background:#FFFFFF; border-radius:5px; padding:1px 5px; color:#ABA79E">⌘K</span>
+        </div>
+      </div>
+      <!-- Guest-journey pill tabs -->
+      <div style="display:flex; gap:5px; margin-top:16px; flex-wrap:wrap">
+        <sc-for list="{{ tabs }}" as="tab" hint-placeholder-count="5">
+          <div onClick="{{ tab.onClick }}" style-hover="opacity:0.85" style="padding:5px 12px; cursor:pointer; font-size:11.5px; font-weight:500; border-radius:99px; background:{{ tab.bg }}; color:{{ tab.color }}; display:flex; align-items:center; gap:5px">
+            <span>{{ tab.label }}</span>
+            <sc-if value="{{ tab.count }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:9.5px; font-weight:600; color:{{ tab.countColor }}; background:{{ tab.countBg }}; padding:0 6px; border-radius:99px">{{ tab.count }}</span>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <!-- Filter chips -->
+      <div style="display:flex; gap:6px; padding:12px 0 10px">
+        <div onClick="{{ toggleUnanswered }}" style-hover="opacity:0.85" style="font-size:11px; font-weight:500; padding:4px 12px; border-radius:99px; cursor:pointer; background:{{ unansweredBg }}; color:{{ unansweredColor }}">Needs reply</div>
+        <div onClick="{{ cycleChannel }}" style-hover="opacity:0.85" style="font-size:11px; font-weight:500; padding:4px 12px; border-radius:99px; cursor:pointer; background:{{ channelChipBg }}; color:{{ channelChipColor }}">{{ channelChipLabel }}</div>
+      </div>
+    </div>
+    <div style="flex:1; overflow-y:auto; padding:2px 10px 14px">
+      <sc-if value="{{ listEmpty }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center; color:#ABA79E; font-size:12px; padding:40px 20px">All quiet — every guest is looked after.</div>
+      </sc-if>
+      <sc-for list="{{ convos }}" as="c" hint-placeholder-count="6">
+        <div onClick="{{ c.onSelect }}" style-hover="background:#F3F1EC" style="display:flex; gap:12px; padding:{{ c.pad }}; border-radius:18px; cursor:pointer; background:{{ c.bg }}; margin-bottom:3px">
+          <div style="width:38px; height:44px; flex-shrink:0; border-radius:19px 19px 7px 7px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; background:{{ c.avatarBg }}; color:{{ c.avatarFg }}">{{ c.initials }}</div>
+          <div style="flex:1; min-width:0">
+            <div style="display:flex; align-items:center; gap:6px">
+              <div style="flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12.5px; font-weight:{{ c.nameWeight }}">{{ c.name }}</div>
+              <sc-if value="{{ c.needsReply }}" hint-placeholder-val="{{ false }}">
+                <span style="width:7px; height:7px; border-radius:99px; background:{{ c.dotColor }}"></span>
+              </sc-if>
+              <div style="font-size:10.5px; color:#ABA79E; flex-shrink:0">{{ c.time }}</div>
+            </div>
+            <div style="font-size:11.5px; color:#8A867F; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-top:1px">{{ c.preview }}</div>
+            <div style="display:flex; align-items:center; gap:7px; margin-top:6px">
+              <span style="width:6px; height:6px; border-radius:99px; background:{{ c.channelColor }}"></span>
+              <span style="font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:9.5px; color:#8A867F">{{ c.listing }}</span>
+              <span style="font-size:10.5px; color:#ABA79E">{{ c.dates }}</span>
+              <span style="font-size:9.5px; font-weight:600; padding:2px 9px; border-radius:99px; margin-left:auto; background:{{ c.chipBg }}; color:{{ c.chipFg }}">{{ c.chipLabel }}</span>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ============ CONVERSATION ============ -->
+  <main data-screen-label="Conversation" style="flex:1; min-width:0; display:flex; flex-direction:column; background:#FBFAF8; border-radius:24px; box-shadow:0 1px 2px rgba(32,30,27,0.03), 0 10px 30px rgba(32,30,27,0.05); overflow:hidden">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 22px 12px">
+      <div style="display:flex; align-items:center; gap:10px; min-width:0">
+        <div style="font-size:16px; font-weight:600; letter-spacing:-0.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:90px; flex-shrink:0">{{ sel.name }}</div>
+        <span style="font-size:9.5px; font-weight:600; padding:3px 10px; border-radius:99px; background:{{ sel.chipBg }}; color:{{ sel.chipFg }}">{{ sel.chipLabel }}</span>
+        <span style="font-size:11px; color:#ABA79E; white-space:nowrap; min-width:0; overflow:hidden; text-overflow:ellipsis">{{ sel.channelLabel }} · {{ sel.listing }}</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:7px">
+        <sc-if value="{{ showAi }}" hint-placeholder-val="{{ true }}">
+          <div onClick="{{ toggleSummary }}" style-hover="opacity:0.88" style="font-size:11.5px; font-weight:600; padding:6px 14px; border-radius:99px; cursor:pointer; color:{{ summaryBtnColor }}; background:{{ summaryBtnBg }}">✦ Summary</div>
+        </sc-if>
+        <div onClick="{{ togglePanel }}" style-hover="background:#EDEAE4" style="font-size:11.5px; font-weight:500; padding:6px 14px; border-radius:99px; cursor:pointer; color:#6F6B64; background:#F1EFEA">{{ panelBtnLabel }}</div>
+      </div>
+    </div>
+
+    <div style="flex:1; overflow-y:auto; padding:14px 24px; display:flex; flex-direction:column; gap:14px">
+      <sc-if value="{{ summaryVisible }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#FBEBE0; border-radius:18px; padding:14px 18px; max-width:640px; align-self:center; width:100%">
+          <div style="font-size:9.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#DC5C28; margin-bottom:4px">✦ Thread summary</div>
+          <div style="font-size:12px; color:#4A463F; text-wrap:pretty">{{ sel.summary }}</div>
+        </div>
+      </sc-if>
+      <div style="text-align:center; font-size:10.5px; color:#ABA79E; padding:2px 0">{{ sel.dayLabel }}</div>
+      <sc-for list="{{ messages }}" as="m" hint-placeholder-count="3">
+        <div style="display:flex; flex-direction:column">
+          <sc-if value="{{ m.isGuest }}" hint-placeholder-val="{{ true }}">
+            <div style="align-self:flex-start; max-width:560px">
+              <div style="background:#F1EFEA; border-radius:20px 20px 20px 6px; padding:12px 17px; font-size:12.5px; color:#2E2B26; white-space:pre-wrap; text-wrap:pretty">{{ m.text }}</div>
+              <div style="font-size:10px; color:#B9B5AC; margin:5px 0 0 8px">{{ m.time }}</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ m.isHost }}" hint-placeholder-val="{{ false }}">
+            <div style="align-self:flex-end; max-width:560px">
+              <div style="border-radius:20px 20px 6px 20px; padding:12px 17px; font-size:12.5px; white-space:pre-wrap; text-wrap:pretty; background:{{ hostBubbleBg }}; color:#FFFFFF">{{ m.text }}</div>
+              <div style="font-size:10px; color:#B9B5AC; margin:5px 8px 0 0; text-align:right">{{ m.time }}</div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- Composer -->
+    <div style="padding:0 18px 18px">
+      <div style="background:#F1EFEA; border-radius:20px">
+        <div style="display:flex; align-items:center; gap:7px; padding:12px 18px 0">
+          <span style="width:7px; height:7px; border-radius:99px; background:{{ sel.channelColor }}"></span>
+          <span style="font-size:11px; font-weight:600; color:#6F6B64">Reply on {{ sel.channelLabel }}</span>
+          <span style="font-size:10.5px; color:#ABA79E">· as Josh Daniel</span>
+        </div>
+        <textarea value="{{ draftText }}" onChange="{{ onDraftChange }}" placeholder="Type a reply…" rows="3" style="width:100%; border:none; resize:none; background:transparent; padding:9px 18px 4px; font-family:inherit; font-size:12.5px; color:#201E1B; line-height:1.55"></textarea>
+        <div style="display:flex; align-items:center; gap:8px; padding:4px 12px 12px">
+          <sc-if value="{{ showAi }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ onAiDraft }}" style-hover="opacity:0.85" style="font-size:11.5px; font-weight:600; color:#DC5C28; padding:6px 14px; border-radius:99px; cursor:pointer; background:#FFFFFF">{{ aiBtnLabel }}</div>
+          </sc-if>
+          <div style="flex:1"></div>
+          <div onClick="{{ onSend }}" style="font-size:12px; font-weight:600; padding:7px 22px; border-radius:99px; cursor:pointer; background:{{ sendBg }}; color:{{ sendColor }}">Send ↗</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ DETAILS PANEL ============ -->
+  <sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ true }}">
+    <aside data-screen-label="Reservation panel" style="width:300px; flex-shrink:0; background:#FBFAF8; border-radius:24px; box-shadow:0 1px 2px rgba(32,30,27,0.03), 0 10px 30px rgba(32,30,27,0.05); overflow-y:auto; padding:20px 16px 20px">
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:0 4px">
+        <div style="font-size:13px; font-weight:600">Reservation</div>
+        <span style="font-size:9.5px; font-weight:600; padding:3px 10px; border-radius:99px; background:{{ sel.statusBg }}; color:{{ sel.statusFg }}">{{ sel.resStatus }}</span>
+      </div>
+
+      <!-- Guest journey strip -->
+      <div style="margin-top:14px; padding:0 4px">
+        <div style="display:flex; align-items:center; gap:4px">
+          <sc-for list="{{ journey }}" as="j" hint-placeholder-count="4">
+            <div style="flex:1; display:flex; flex-direction:column; gap:5px">
+              <div style="height:4px; border-radius:99px; background:{{ j.barColor }}"></div>
+              <div style="font-size:9px; font-weight:{{ j.weight }}; color:{{ j.color }}; text-align:center">{{ j.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font-size:11px; color:#8A867F; text-align:center; margin-top:7px">{{ journeyCaption }}</div>
+      </div>
+
+      <!-- Key facts first -->
+      <div style="margin-top:14px; background:#FBE7DB; border-radius:20px 20px 20px 20px; padding:16px">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; font-weight:600; letter-spacing:-0.01em">
+          <span>{{ sel.checkin }}</span>
+          <span style="color:#B9B5AC; font-weight:400">→</span>
+          <span>{{ sel.checkout }}</span>
+        </div>
+        <div style="font-size:11px; color:#8A867F; margin-top:2px">{{ sel.stayMeta }}</div>
+        <div onClick="{{ toggleBreakdown }}" style-hover="opacity:0.8" style="display:flex; align-items:baseline; justify-content:space-between; margin-top:13px; padding-top:13px; border-top:1px solid #F2CDB4; cursor:pointer">
+          <span style="font-size:11px; color:#8A867F">Total payout <span style="font-size:9px">{{ breakdownArrow }}</span></span>
+          <span style="font-size:17px; font-weight:600; letter-spacing:-0.01em; color:#B7451C">{{ sel.total }}</span>
+        </div>
+        <sc-if value="{{ breakdownExpanded }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; flex-direction:column; gap:5px; margin-top:8px; padding:10px 12px; background:rgba(255,255,255,0.6); border-radius:12px">
+            <sc-for list="{{ breakdown }}" as="b" hint-placeholder-count="3">
+              <div style="display:flex; justify-content:space-between; gap:8px"><span style="font-size:11px; color:#8A867F">{{ b.label }}</span><span style="font-size:11px; font-weight:500; color:#4A463F">{{ b.amount }}</span></div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:9px">
+          <span style="font-size:11px; color:#8A867F">Channel</span>
+          <span style="display:flex; align-items:center; gap:6px; font-size:11.5px; font-weight:500"><span style="width:6px; height:6px; border-radius:99px; background:{{ sel.channelColor }}"></span>{{ sel.channelLabel }}</span>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:7px">
+          <span style="font-size:11px; color:#8A867F">Listing</span>
+          <a href="#" style="font-size:11.5px; font-weight:500">{{ sel.listingFull }}</a>
+        </div>
+      </div>
+
+      <!-- Quick actions (contextual to journey stage) -->
+      <div style="margin-top:10px; display:grid; grid-template-columns:1fr 1fr; gap:6px">
+        <sc-for list="{{ quickActions }}" as="qa" hint-placeholder-count="4">
+          <div onClick="{{ qa.onClick }}" style-hover="opacity:0.85" style="text-align:center; font-size:10.5px; font-weight:600; padding:9px 6px; border-radius:99px; cursor:pointer; background:{{ qa.bg }}; color:{{ qa.color }}">{{ qa.label }}</div>
+        </sc-for>
+      </div>
+
+      <!-- Door code -->
+      <sc-if value="{{ sel.showAccess }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:10px; background:#26231F; border-radius:20px; padding:13px 16px; display:flex; align-items:center; justify-content:space-between; gap:8px">
+          <div>
+            <div style="font-size:9px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.55)">Door code</div>
+            <div style="font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:15px; font-weight:600; color:#FFFFFF; letter-spacing:0.12em; margin-top:2px">{{ accessCode }}</div>
+          </div>
+          <div style="display:flex; gap:5px">
+            <div onClick="{{ toggleAccess }}" style-hover="opacity:0.85" style="font-size:10.5px; font-weight:600; padding:6px 12px; border-radius:99px; cursor:pointer; background:rgba(255,255,255,0.14); color:#FFFFFF">{{ accessBtnLabel }}</div>
+            <div onClick="{{ copyAccess }}" style-hover="opacity:0.85" style="font-size:10.5px; font-weight:600; padding:6px 12px; border-radius:99px; cursor:pointer; background:#DC5C28; color:#FFFFFF">{{ copyLabel }}</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Arrival checklist -->
+      <sc-if value="{{ sel.showChecklist }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:10px; background:#F7F5F0; border-radius:20px; overflow:hidden">
+          <div onClick="{{ toggleChecklistSec }}" style-hover="background:#F1EFEA" style="display:flex; align-items:center; justify-content:space-between; padding:13px 16px; cursor:pointer">
+            <div style="display:flex; align-items:center; gap:8px">
+              <span style="font-size:12px; font-weight:600">Arrival checklist</span>
+              <span style="font-size:9.5px; font-weight:600; padding:2px 9px; border-radius:99px; background:{{ checklistBadgeBg }}; color:{{ checklistBadgeFg }}">{{ checklistBadge }}</span>
+            </div>
+            <span style="font-size:10px; color:#ABA79E">{{ checklistArrow }}</span>
+          </div>
+          <sc-if value="{{ checklistExpanded }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:2px 16px 14px; display:flex; flex-direction:column; gap:8px">
+              <div onClick="{{ toggleForm }}" style-hover="opacity:0.8" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer">
+                <span style="font-size:11.5px; color:#4A463F">Check-in form</span>
+                <span style="font-size:9.5px; font-weight:600; padding:2px 10px; border-radius:99px; background:{{ formBg }}; color:{{ formFg }}">{{ formLabel }}</span>
+              </div>
+              <div onClick="{{ toggleAgreement }}" style-hover="opacity:0.8" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer">
+                <span style="font-size:11.5px; color:#4A463F">Rental agreement</span>
+                <span style="font-size:9.5px; font-weight:600; padding:2px 10px; border-radius:99px; background:{{ agreementBg }}; color:{{ agreementFg }}">{{ agreementLabel }}</span>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- Private note -->
+      <div style="margin-top:10px; background:#F7F5F0; border-radius:20px; padding:12px 16px 10px">
+        <div style="font-size:12px; font-weight:600; margin-bottom:4px">Private note</div>
+        <textarea value="{{ noteText }}" onChange="{{ onNoteChange }}" placeholder="Only you and your team can see this…" rows="2" style="width:100%; border:none; resize:none; background:transparent; font-family:inherit; font-size:11.5px; color:#4A463F; line-height:1.5"></textarea>
+      </div>
+
+      <!-- Guest contact -->
+      <div style="margin-top:10px; background:#F7F5F0; border-radius:20px; overflow:hidden">
+        <div onClick="{{ toggleContactSec }}" style-hover="background:#F1EFEA" style="display:flex; align-items:center; justify-content:space-between; padding:13px 16px; cursor:pointer">
+          <span style="font-size:12px; font-weight:600">Guest details</span>
+          <span style="font-size:10px; color:#ABA79E">{{ contactArrow }}</span>
+        </div>
+        <sc-if value="{{ contactExpanded }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:2px 16px 14px; display:flex; flex-direction:column; gap:7px">
+            <div style="display:flex; justify-content:space-between"><span style="font-size:11px; color:#8A867F">Email</span><span style="font-size:11.5px">{{ sel.email }}</span></div>
+            <div style="display:flex; justify-content:space-between"><span style="font-size:11px; color:#8A867F">Phone</span><span style="font-size:11.5px">{{ sel.phone }}</span></div>
+            <div style="display:flex; justify-content:space-between"><span style="font-size:11px; color:#8A867F">Past stays</span><span style="font-size:11.5px">{{ sel.pastStays }}</span></div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- Policies -->
+      <div style="margin-top:10px; background:#F7F5F0; border-radius:20px; overflow:hidden">
+        <div onClick="{{ togglePolicySec }}" style-hover="background:#F1EFEA" style="display:flex; align-items:center; justify-content:space-between; padding:13px 16px; cursor:pointer">
+          <span style="font-size:12px; font-weight:600">Times &amp; policy</span>
+          <span style="font-size:10px; color:#ABA79E">{{ policyArrow }}</span>
+        </div>
+        <sc-if value="{{ policyExpanded }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:2px 16px 14px; display:flex; flex-direction:column; gap:7px">
+            <div style="display:flex; justify-content:space-between"><span style="font-size:11px; color:#8A867F">Check-in</span><span style="font-size:11.5px">4:00 pm</span></div>
+            <div style="display:flex; justify-content:space-between"><span style="font-size:11px; color:#8A867F">Check-out</span><span style="font-size:11.5px">11:00 am</span></div>
+            <div style="font-size:11px; color:#8A867F; line-height:1.55; padding-top:6px; border-top:1px solid #E4E1D9; text-wrap:pretty"><strong style="color:#4A463F">Moderate</strong> — free cancellation until five days before check-in.</div>
+          </div>
+        </sc-if>
+      </div>
+    </aside>
+  </sc-if>
+
+  <!-- ============ COMMAND PALETTE ============ -->
+  <sc-if value="{{ paletteOpen }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Command palette" onClick="{{ closePalette }}" style="position:fixed; inset:0; background:rgba(32,30,27,0.32); backdrop-filter:blur(3px); z-index:50; display:flex; justify-content:center; padding-top:14vh">
+      <div onClick="{{ stopProp }}" style="width:560px; max-height:420px; background:#FBFAF8; border-radius:24px; box-shadow:0 24px 64px rgba(32,30,27,0.24); overflow:hidden; display:flex; flex-direction:column; align-self:flex-start">
+        <div style="display:flex; align-items:center; gap:10px; padding:16px 20px; border-bottom:1px solid #F1EFEA">
+          <span style="color:#ABA79E; font-size:14px">⌕</span>
+          <input ref="{{ paletteInputRef }}" value="{{ query }}" onChange="{{ onQueryChange }}" placeholder="Search guests, listings, or type a filter…" style="flex:1; border:none; font-family:inherit; font-size:13.5px; color:#201E1B; background:transparent">
+          <span style="font-size:9.5px; background:#F1EFEA; border-radius:5px; padding:2px 6px; color:#ABA79E">esc</span>
+        </div>
+        <div style="overflow-y:auto; padding:10px">
+          <div style="font-size:9.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#ABA79E; padding:6px 12px 4px">{{ paletteHeading }}</div>
+          <sc-for list="{{ paletteItems }}" as="p" hint-placeholder-count="4">
+            <div onClick="{{ p.onSelect }}" style-hover="background:#F3F1EC" style="display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:14px; cursor:pointer">
+              <div style="width:30px; height:30px; flex-shrink:0; border-radius:{{ p.iconRadius }}; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; background:{{ p.iconBg }}; color:{{ p.iconFg }}">{{ p.icon }}</div>
+              <div style="flex:1; min-width:0">
+                <div style="font-size:12.5px; font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">{{ p.title }}</div>
+                <div style="font-size:10.5px; color:#ABA79E; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">{{ p.sub }}</div>
+              </div>
+              <span style="font-size:9.5px; color:#B9B5AC">{{ p.hint }}</span>
+            </div>
+          </sc-for>
+          <sc-if value="{{ paletteEmpty }}" hint-placeholder-val="{{ false }}">
+            <div style="text-align:center; color:#ABA79E; font-size:12px; padding:24px">No matches for “{{ query }}”.</div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accentColor&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#DC5C28&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#DC5C28&quot;, &quot;#4F63D2&quot;, &quot;#12897C&quot;], &quot;section&quot;: &quot;Appearance&quot; },
+  &quot;compactList&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Appearance&quot; },
+  &quot;showAi&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Features&quot; }
+}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.paletteInputRef = React.createRef();
+    this.state = {
+      tab: 'all',
+      selectedId: 'hemita',
+      unansweredOnly: false,
+      channelFilter: 'all',
+      paletteOpen: false,
+      query: '',
+      panelOpen: true,
+      summaries: {},
+      drafts: {},
+      aiTyping: false,
+      expanded: { checklist: true, contact: false, policy: false, breakdown: false },
+      actionsDone: {},
+      notes: {},
+      accessShown: false,
+      copied: false,
+      checklist: {},
+      convos: this.seedData()
+    };
+  }
+
+  seedData() {
+    return [
+      { id:'sally', name:'Sally Tully', initials:'ST', channel:'airbnb', stage:'inquiry', listing:'ESE17', listingFull:'ESE17 · 17 Essex Rd', dates:'Jul 14 – 17', checkin:'Jul 14', checkout:'Jul 17', nights:3, guests:2, total:'£612.00', resStatus:'Inquiry', time:'9:48', dayLabel:'Today', needsReply:true, email:'sally.t@…com', phone:'+44 7700 900…', pastStays:'0',
+        preview:'Is the apartment available Jul 14–17 for two adults?',
+        messages:[{from:'guest', time:'9:48 AM', text:'Hello! Is the apartment available Jul 14–17 for two adults? Also — is early check-in around noon possible? We land at Heathrow at 9am.'}],
+        summary:'New inquiry for Jul 14–17, 2 adults. Guest asks about availability and early check-in (~noon) after a 9am landing. Needs a reply.',
+        aiDraft:'Hi Sally! Yes, Jul 14–17 is available for two adults. Standard check-in is 4pm — noon is usually possible if the night before stays free, and I can confirm 48h out. Happy to hold luggage either way. Shall I send a booking link?' },
+      { id:'hemita', name:'Hemita', initials:'H', channel:'airbnb', stage:'inquiry', listing:'UPP330', listingFull:'UPP330 · 330 Upper St', dates:'Jul 5 – 8', checkin:'Jul 5', checkout:'Jul 8', nights:3, guests:2, total:'£783.52', resStatus:'Expired', time:'Sun', dayLabel:'Sunday, Jul 5', needsReply:false, email:'hemita.k@…com', phone:'+44 7700 901…', pastStays:'0',
+        preview:'Would you consider a special rate for Jul 5–8?',
+        messages:[
+          {from:'guest', time:'10:20 AM', text:'Hi! My sister and I are looking for a last-minute stay in London and absolutely love your place. We are on a strict budget — would you be open to a special rate for Jul 5–8? Happy to do a later check-in. Our max is £300. Totally understand if not!'},
+          {from:'host', time:'10:21 AM', text:'Hi Hemita! Thanks for the enquiry — unfortunately that is quite a bit below our nightly rate, so we cannot make it work this time. We appreciate you reaching out!'}],
+        summary:'Guest asked for a discounted rate (£300 max vs £783 total) for Jul 5–8. Politely declined — well below nightly rate. Inquiry has since expired; no action needed.',
+        aiDraft:'Hi Hemita, just to close the loop — we cannot come down to £300 for these dates, but we occasionally release last-minute midweek rates. If your dates are flexible, keep an eye on the listing. Wishing you a great trip!' },
+      { id:'juan', name:'Juan', initials:'J', channel:'airbnb', stage:'inquiry', listing:'ESE17', listingFull:'ESE17 · 17 Essex Rd', dates:'Jul 10 – 11', checkin:'Jul 10', checkout:'Jul 11', nights:1, guests:1, total:'£178.00', resStatus:'Inquiry', time:'Thu', dayLabel:'Thursday, Jul 9', needsReply:true, email:'juan.m@…com', phone:'+34 600 111 …', pastStays:'0',
+        preview:'Is it available for tonight? Just one night.',
+        messages:[{from:'guest', time:'4:02 PM', text:'Hi, I am looking for a place to stay this afternoon. Is it available for tonight? Just one night, one person.'}],
+        summary:'Same-day inquiry: tonight, 1 night, 1 guest. Needs a fast yes/no on availability.',
+        aiDraft:'Hi Juan! Yes — tonight is available. Self check-in opens at 4pm and the place will be ready by then. Book through the listing and I will send the door code right away.' },
+      { id:'marcus', name:'Marcus Webb', initials:'MW', channel:'booking', stage:'arriving', listing:'UPP330', listingFull:'UPP330 · 330 Upper St', dates:'Jul 11 – 14', checkin:'Jul 11', checkout:'Jul 14', nights:3, guests:3, total:'£742.10', resStatus:'Confirmed', time:'8:15', dayLabel:'Today', needsReply:true, email:'m.webb@…com', phone:'+44 7700 902…', pastStays:'1',
+        preview:'We arrive tomorrow — what time can we check in?',
+        messages:[{from:'guest', time:'8:15 AM', text:'Hi! We arrive tomorrow. What time can we check in, and is there parking nearby?'}],
+        summary:'Arriving tomorrow (Jul 11). Asking about check-in time and nearby parking. Reply needed before arrival; check-in form still incomplete.',
+        aiDraft:'Hi Marcus! Check-in is from 4pm — I will send the door code that morning. For parking, the car park on Upper Street is 3 minutes away (~£18/day) and street bays are free after 6:30pm. Safe travels!' },
+      { id:'priya', name:'Priya Nair', initials:'PN', channel:'booking', stage:'arriving', listing:'ESE17', listingFull:'ESE17 · 17 Essex Rd', dates:'Jul 12 – 15', checkin:'Jul 12', checkout:'Jul 15', nights:3, guests:2, total:'£534.75', resStatus:'Confirmed', time:'Wed', dayLabel:'Wednesday, Jul 8', needsReply:false, email:'priya.n@…com', phone:'+91 98200 11…', pastStays:'0',
+        preview:'You: I have sent your check-in guide with the door code…',
+        messages:[
+          {from:'guest', time:'11:40 AM', text:'Booking confirmed — looking forward to it!'},
+          {from:'host', time:'12:02 PM', text:'Wonderful! I have sent your check-in guide with the door code and Wi-Fi details. Give me a shout if anything is unclear.'}],
+        summary:'Confirmed for Jul 12–15. Check-in guide already sent; waiting on guest. No action needed.',
+        aiDraft:'Hi Priya! Just checking in ahead of Sunday — your check-in guide is in this thread. Anything you would like ready for arrival?' },
+      { id:'hattie', name:'Hattie Goodhart', initials:'HG', channel:'airbnb', stage:'instay', listing:'UPP330', listingFull:'UPP330 · 330 Upper St', dates:'Jul 6 – 13', checkin:'Jul 6', checkout:'Jul 13', nights:7, guests:2, total:'£1,830.00', resStatus:'Checked in', time:'Tue', dayLabel:'Tuesday, Jul 7', needsReply:true, email:'hattie.g@…com', phone:'+44 7700 903…', pastStays:'2',
+        preview:'The hot water runs cold after about 5 minutes…',
+        messages:[
+          {from:'host', time:'9:10 AM', text:'Hi Hattie, hope you had a smooth arrival and a restful first night!'},
+          {from:'guest', time:'9:34 AM', text:'All lovely, thank you! One thing — the hot water runs cold after about 5 minutes. Is there a trick to the boiler?'}],
+        summary:'In-stay guest (Jul 6–13, checked in). Reports hot water going cold after ~5 min — likely the boiler eco pre-heat setting. Needs a troubleshooting reply or a maintenance visit.',
+        aiDraft:'So glad you are settled in, Hattie! That sounds like the boiler eco mode — on the panel by the airing cupboard, hold the mode button for 3 seconds to switch to comfort. If it still cuts out tonight, I will send our engineer first thing tomorrow.' },
+      { id:'ben', name:'Ben Jones', initials:'BJ', channel:'airbnb', stage:'past', listing:'ESE17', listingFull:'ESE17 · 17 Essex Rd', dates:'Jun 30 – Jul 3', checkin:'Jun 30', checkout:'Jul 3', nights:3, guests:2, total:'£421.00', resStatus:'Completed', time:'Jul 3', dayLabel:'Friday, Jul 3', needsReply:false, email:'ben.j@…com', phone:'+44 7700 904…', pastStays:'0',
+        preview:'Thank you so much for a great stay!',
+        messages:[
+          {from:'guest', time:'10:05 AM', text:'Thank you so much for a great stay — the place was spotless and the location perfect.'},
+          {from:'host', time:'10:30 AM', text:'Thanks Ben, you were a pleasure to host! We would love to welcome you back anytime.'}],
+        summary:'Checked out Jul 3. Guest left a warm thank-you; reply sent. Good moment to request a review.',
+        aiDraft:'Thanks again, Ben! If you have two spare minutes, a quick review would mean a lot — and you are always welcome back.' },
+      { id:'elena', name:'Elena Rossi', initials:'ER', channel:'direct', stage:'past', listing:'UPP330', listingFull:'UPP330 · 330 Upper St', dates:'Jun 24 – 28', checkin:'Jun 24', checkout:'Jun 28', nights:4, guests:2, total:'£968.00', resStatus:'Completed', time:'Jun 29', dayLabel:'Monday, Jun 29', needsReply:false, email:'elena.r@…com', phone:'+39 333 100 1…', pastStays:'1',
+        preview:'We loved it — already recommending you to friends!',
+        messages:[
+          {from:'host', time:'9:00 AM', text:'Hope you got home safe, Elena! Thanks for taking such good care of the flat.'},
+          {from:'guest', time:'9:45 AM', text:'We loved it — already recommending you to friends. Grazie!'}],
+        summary:'Direct booking, checked out Jun 28. Very positive sentiment — strong repeat-guest candidate.',
+        aiDraft:'Ciao Elena! As a thank-you, here is 10% off any direct booking this autumn — just mention this message when you write.' }
+    ];
+  }
+
+  componentDidMount() {
+    this.keyHandler = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        this.setState(s => ({ paletteOpen: !s.paletteOpen, query: '' }));
+      } else if (e.key === 'Escape' && this.state.paletteOpen) {
+        this.setState({ paletteOpen: false });
+      }
+    };
+    window.addEventListener('keydown', this.keyHandler);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.keyHandler);
+    if (this.aiTimer) clearInterval(this.aiTimer);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.paletteOpen && !prevState.paletteOpen && this.paletteInputRef.current) {
+      this.paletteInputRef.current.focus();
+    }
+  }
+
+  extras(id) {
+    const map = {
+      sally:  { code:'', breakdown:[['£184 × 3 nights','£552.00'],['Cleaning fee','£75.00'],['Channel fee','−£15.00']] },
+      hemita: { code:'', breakdown:[['£242 × 3 nights','£726.00'],['Cleaning fee','£80.00'],['Channel fee','−£22.48']] },
+      juan:   { code:'', breakdown:[['£150 × 1 night','£150.00'],['Cleaning fee','£40.00'],['Channel fee','−£12.00']] },
+      marcus: { code:'2481#', breakdown:[['£226 × 3 nights','£678.00'],['Cleaning fee','£85.00'],['Channel fee','−£20.90']] },
+      priya:  { code:'7350#', breakdown:[['£158 × 3 nights','£474.00'],['Cleaning fee','£75.00'],['Channel fee','−£14.25']] },
+      hattie: { code:'9264#', breakdown:[['£240 × 7 nights','£1,680.00'],['Cleaning fee','£200.00'],['Channel fee','−£50.00']] },
+      ben:    { code:'', breakdown:[['£122 × 3 nights','£366.00'],['Cleaning fee','£65.00'],['Channel fee','−£10.00']] },
+      elena:  { code:'', breakdown:[['£220 × 4 nights','£880.00'],['Cleaning fee','£88.00'],['Direct — no channel fee','£0.00']] }
+    };
+    return map[id];
+  }
+  chip(stage) {
+    const map = {
+      inquiry:  { label:'Inquiry',  bg:'#F8EDD8', fg:'#96690F' },
+      arriving: { label:'Arriving', bg:'#E3EDF8', fg:'#2A5FA8' },
+      instay:   { label:'In-stay',  bg:'#E5F2E7', fg:'#2F7A4D' },
+      past:     { label:'Past',     bg:'#EBE8E2', fg:'#7A766D' }
+    };
+    return map[stage];
+  }
+  channelMeta(ch) {
+    const map = {
+      airbnb:  { label:'Airbnb',      color:'#E4585B' },
+      booking: { label:'Booking.com', color:'#2A6FDB' },
+      direct:  { label:'Direct',      color:'#DC5C28' }
+    };
+    return map[ch];
+  }
+
+  renderVals() {
+    const s = this.state;
+    const accent = this.props.accentColor ?? '#DC5C28';
+    const showAi = this.props.showAi ?? true;
+    const compact = this.props.compactList ?? false;
+    const all = s.convos;
+    const sel = all.find(c => c.id === s.selectedId) || all[0];
+    const needsCount = all.filter(c => c.needsReply).length;
+
+    // ---- nav ----
+    const noop = () => {};
+    const navItem = (label, active, badge) => ({
+      label, badge: badge || false, badgeBg: '#26231F',
+      bg: active ? '#FBFAF8' : 'transparent',
+      color: active ? '#201E1B' : 'rgba(255,255,255,0.9)',
+      weight: active ? 600 : 400,
+      onClick: noop
+    });
+    const navSections = [
+      { title:false, items:[ navItem('Overview'), navItem('Calendar'), navItem('Inbox', true, String(needsCount)), navItem('Reservations'), navItem('Listings') ] },
+      { title:'Operations', items:[ navItem('Tasks'), navItem('Automations'), navItem('Templates'), navItem('Reviews') ] },
+      { title:'Business', items:[ navItem('Reporting'), navItem('Pricing'), navItem('Channels'), navItem('Booking site') ] },
+      { title:false, items:[ navItem('Settings') ] }
+    ];
+
+    // ---- tabs ----
+    const stages = [ ['all','All'], ['inquiry','Inquiries'], ['arriving','Arriving'], ['instay','In-stay'], ['past','Past'] ];
+    const tabs = stages.map(([key, label]) => {
+      const active = s.tab === key;
+      const count = key === 'all' ? false : String(all.filter(c => c.stage === key).length);
+      return {
+        label, count,
+        bg: active ? accent : '#F1EFEA',
+        color: active ? '#FFFFFF' : '#6F6B64',
+        countBg: active ? 'rgba(255,255,255,0.28)' : '#FFFFFF',
+        countColor: active ? '#FFFFFF' : '#8A867F',
+        onClick: () => this.setState({ tab: key })
+      };
+    });
+
+    // ---- filtered list ----
+    let list = all.filter(c => (s.tab === 'all' || c.stage === s.tab));
+    if (s.unansweredOnly) list = list.filter(c => c.needsReply);
+    if (s.channelFilter !== 'all') list = list.filter(c => c.channel === s.channelFilter);
+
+    const convos = list.map(c => {
+      const selected = c.id === sel.id;
+      const chip = this.chip(c.stage);
+      const cm = this.channelMeta(c.channel);
+      return {
+        ...c,
+        onSelect: () => this.setState(prev => ({ selectedId: c.id, accessShown: false, copied: false, expanded: { ...prev.expanded, breakdown: false } })),
+        bg: selected ? '#F1EFEA' : 'transparent',
+        pad: compact ? '8px 12px' : '12px 12px',
+        nameWeight: c.needsReply ? 600 : 500,
+        dotColor: accent,
+        avatarBg: selected ? '#F8E2D6' : '#F1EFEA',
+        avatarFg: selected ? accent : '#6F6B64',
+        channelColor: cm.color,
+        chipLabel: chip.label, chipBg: selected ? '#FFFFFF' : chip.bg, chipFg: chip.fg
+      };
+    });
+
+    // ---- selected conversation ----
+    const chip = this.chip(sel.stage);
+    const cm = this.channelMeta(sel.channel);
+    const statusMap = {
+      'Inquiry':   { bg:'#F8EDD8', fg:'#96690F' }, 'Expired': { bg:'#EBE8E2', fg:'#7A766D' },
+      'Confirmed': { bg:'#E5F2E7', fg:'#2F7A4D' }, 'Checked in': { bg:'#E3EDF8', fg:'#2A5FA8' },
+      'Completed': { bg:'#EBE8E2', fg:'#7A766D' }
+    };
+    const st = statusMap[sel.resStatus];
+    const selVals = {
+      ...sel,
+      chipLabel: chip.label, chipBg: chip.bg, chipFg: chip.fg,
+      channelLabel: cm.label, channelColor: cm.color,
+      statusBg: st.bg, statusFg: st.fg,
+      stayMeta: sel.nights + (sel.nights === 1 ? ' night · ' : ' nights · ') + sel.guests + (sel.guests === 1 ? ' guest' : ' guests'),
+      showChecklist: sel.stage === 'arriving' || sel.stage === 'instay',
+      showAccess: sel.stage === 'arriving' || sel.stage === 'instay'
+    };
+
+    // ---- journey strip ----
+    const stageIdx = { inquiry:0, arriving:1, instay:2, past:3 }[sel.stage];
+    const journey = ['Inquiry','Arriving','In-stay','Past'].map((label, i) => ({
+      label,
+      barColor: i <= stageIdx ? accent : '#EBE8E2',
+      color: i === stageIdx ? '#B7451C' : '#ABA79E',
+      weight: i === stageIdx ? 600 : 500
+    }));
+    const journeyCaption = sel.stage === 'inquiry' ? 'Not booked yet — inquiry stage'
+      : sel.stage === 'arriving' ? 'Checks in ' + sel.checkin
+      : sel.stage === 'instay' ? 'In the property — checks out ' + sel.checkout
+      : 'Checked out ' + sel.checkout;
+
+    // ---- quick actions ----
+    const actionsByStage = {
+      inquiry:  ['Send booking link','Pre-approve','Suggest other dates','Decline politely'],
+      arriving: ['Send check-in guide','Offer early check-in','Schedule cleaning','Add task'],
+      instay:   ['Send maintenance','Offer late checkout','Send local tips','Add task'],
+      past:     ['Request review','Offer return discount','Send thank-you','Add task']
+    };
+    const doneMap = s.actionsDone[sel.id] || {};
+    const quickActions = actionsByStage[sel.stage].map(label => {
+      const done = !!doneMap[label];
+      return {
+        label: done ? '✓ ' + label : label,
+        bg: done ? '#E5F2E7' : '#F1EFEA',
+        color: done ? '#2F7A4D' : '#4A463F',
+        onClick: () => this.setState(prev => ({ actionsDone: { ...prev.actionsDone, [sel.id]: { ...(prev.actionsDone[sel.id] || {}), [label]: !((prev.actionsDone[sel.id] || {})[label]) } } }))
+      };
+    });
+
+    // ---- payout breakdown + door code ----
+    const extras = this.extras(sel.id) || { code:'', breakdown:[] };
+    const breakdown = extras.breakdown.map(([label, amount]) => ({ label, amount }));
+    const copyAccess = () => {
+      if (navigator.clipboard) navigator.clipboard.writeText(extras.code);
+      this.setState({ copied: true });
+      if (this.copyTimer) clearTimeout(this.copyTimer);
+      this.copyTimer = setTimeout(() => this.setState({ copied: false }), 1500);
+    };
+
+    const messages = sel.messages.map(m => ({ ...m, isGuest: m.from === 'guest', isHost: m.from === 'host' }));
+
+    // ---- composer ----
+    const draftText = s.drafts[sel.id] ?? '';
+    const canSend = draftText.trim().length > 0;
+
+    // ---- checklist ----
+    const check = s.checklist[sel.id] || { form:false, agreement:false };
+    const doneCount = (check.form ? 1 : 0) + (check.agreement ? 1 : 0);
+    const badgeStyle = (done) => done ? { bg:'#E5F2E7', fg:'#2F7A4D' } : { bg:'#F9E3DD', fg:'#B14A3A' };
+    const fb = badgeStyle(check.form), ab = badgeStyle(check.agreement);
+    const setCheck = (key) => this.setState(prev => ({
+      checklist: { ...prev.checklist, [sel.id]: { ...(prev.checklist[sel.id] || { form:false, agreement:false }), [key]: !((prev.checklist[sel.id] || {})[key]) } }
+    }));
+
+    // ---- palette ----
+    const q = s.query.trim().toLowerCase();
+    let paletteItems, paletteHeading;
+    const selectConvo = (id, tab) => this.setState({ selectedId:id, tab:tab || 'all', paletteOpen:false, query:'', unansweredOnly:false, channelFilter:'all' });
+    if (!q) {
+      paletteHeading = 'Quick filters';
+      paletteItems = [
+        { icon:'↩', title:'Needs a reply', sub: needsCount + ' conversations waiting on you', hint:'filter', iconBg:'#F8E2D6', iconFg:accent, iconRadius:'10px', onSelect:() => this.setState({ tab:'all', unansweredOnly:true, channelFilter:'all', paletteOpen:false, query:'' }) },
+        { icon:'→', title:'Arriving soon', sub:'Guests checking in over the next 7 days', hint:'filter', iconBg:'#E3EDF8', iconFg:'#2A5FA8', iconRadius:'10px', onSelect:() => this.setState({ tab:'arriving', unansweredOnly:false, channelFilter:'all', paletteOpen:false, query:'' }) },
+        { icon:'?', title:'Open inquiries', sub:'Potential bookings not yet confirmed', hint:'filter', iconBg:'#F8EDD8', iconFg:'#96690F', iconRadius:'10px', onSelect:() => this.setState({ tab:'inquiry', unansweredOnly:false, channelFilter:'all', paletteOpen:false, query:'' }) },
+        { icon:'✓', title:'Past stays', sub:'Checked-out guests — reviews & follow-ups', hint:'filter', iconBg:'#EBE8E2', iconFg:'#7A766D', iconRadius:'10px', onSelect:() => this.setState({ tab:'past', unansweredOnly:false, channelFilter:'all', paletteOpen:false, query:'' }) }
+      ];
+    } else {
+      paletteHeading = 'Conversations';
+      paletteItems = all
+        .filter(c => (c.name + ' ' + c.listing + ' ' + c.preview + ' ' + this.channelMeta(c.channel).label).toLowerCase().includes(q))
+        .map(c => {
+          const ch = this.chip(c.stage);
+          return { icon:c.initials, title:c.name, sub:c.listing + ' · ' + c.dates + ' · ' + ch.label, hint:'open', iconBg:'#F1EFEA', iconFg:'#6F6B64', iconRadius:'14px 14px 5px 5px', onSelect:() => selectConvo(c.id, c.stage) };
+        });
+    }
+
+    // ---- AI draft ----
+    const onAiDraft = () => {
+      if (s.aiTyping) return;
+      const full = sel.aiDraft;
+      const id = sel.id;
+      let i = 0;
+      this.setState(prev => ({ aiTyping:true, drafts: { ...prev.drafts, [id]: '' } }));
+      this.aiTimer = setInterval(() => {
+        i += 3;
+        const slice = full.slice(0, i);
+        this.setState(prev => ({ drafts: { ...prev.drafts, [id]: slice } }));
+        if (i >= full.length) { clearInterval(this.aiTimer); this.setState({ aiTyping:false }); }
+      }, 14);
+    };
+
+    const onSend = () => {
+      if (!canSend) return;
+      this.setState(prev => ({
+        convos: prev.convos.map(c => c.id === sel.id ? { ...c, needsReply:false, preview:'You: ' + draftText.slice(0, 60), messages:[...c.messages, { from:'host', time:'Just now', text:draftText }] } : c),
+        drafts: { ...prev.drafts, [sel.id]: '' }
+      }));
+    };
+
+    const channelCycle = ['all','airbnb','booking','direct'];
+    const chLabels = { all:'All channels', airbnb:'Airbnb', booking:'Booking.com', direct:'Direct' };
+    const chActive = s.channelFilter !== 'all';
+
+    const hour = new Date().getHours();
+    const greeting = hour < 12 ? 'Good morning, Josh' : (hour < 18 ? 'Good afternoon, Josh' : 'Good evening, Josh');
+    const summaryVisible = showAi && !!s.summaries[sel.id];
+
+    return {
+      showAi, greeting,
+      navSections, tabs, convos,
+      listEmpty: convos.length === 0,
+      needsReplyLabel: needsCount === 0 ? 'Every guest is looked after' : needsCount + (needsCount === 1 ? ' guest is waiting on you' : ' guests are waiting on you'),
+      sel: selVals, messages,
+      hostBubbleBg: accent,
+      summaryVisible,
+      summaryBtnColor: summaryVisible ? '#FFFFFF' : accent,
+      summaryBtnBg: summaryVisible ? accent : '#F8E2D6',
+      toggleSummary: () => this.setState(prev => ({ summaries: { ...prev.summaries, [sel.id]: !prev.summaries[sel.id] } })),
+      panelOpen: s.panelOpen,
+      panelBtnLabel: s.panelOpen ? 'Hide details' : 'Show details',
+      togglePanel: () => this.setState(prev => ({ panelOpen: !prev.panelOpen })),
+      draftText,
+      onDraftChange: (e) => { const v = e.target.value; this.setState(prev => ({ drafts: { ...prev.drafts, [sel.id]: v } })); },
+      onSend,
+      sendBg: canSend ? accent : '#E7E4DD',
+      sendColor: canSend ? '#FFFFFF' : '#B3AFA7',
+      onAiDraft,
+      aiBtnLabel: s.aiTyping ? '✦ Drafting…' : '✦ Draft reply',
+      toggleUnanswered: () => this.setState(prev => ({ unansweredOnly: !prev.unansweredOnly })),
+      unansweredBg: s.unansweredOnly ? '#26231F' : '#F1EFEA',
+      unansweredColor: s.unansweredOnly ? '#FFFFFF' : '#6F6B64',
+      cycleChannel: () => this.setState(prev => ({ channelFilter: channelCycle[(channelCycle.indexOf(prev.channelFilter) + 1) % channelCycle.length] })),
+      channelChipLabel: chLabels[s.channelFilter],
+      channelChipBg: chActive ? '#F8E2D6' : '#F1EFEA',
+      channelChipColor: chActive ? accent : '#6F6B64',
+      // checklist
+      checklistExpanded: s.expanded.checklist,
+      checklistArrow: s.expanded.checklist ? '▾' : '▸',
+      checklistBadge: doneCount === 2 ? 'Complete' : doneCount + ' of 2',
+      checklistBadgeBg: doneCount === 2 ? '#E5F2E7' : '#F9E3DD',
+      checklistBadgeFg: doneCount === 2 ? '#2F7A4D' : '#B14A3A',
+      toggleChecklistSec: () => this.setState(prev => ({ expanded: { ...prev.expanded, checklist: !prev.expanded.checklist } })),
+      formLabel: check.form ? 'Done' : 'Incomplete', formBg: fb.bg, formFg: fb.fg,
+      agreementLabel: check.agreement ? 'Done' : 'Incomplete', agreementBg: ab.bg, agreementFg: ab.fg,
+      toggleForm: () => setCheck('form'),
+      toggleAgreement: () => setCheck('agreement'),
+      contactExpanded: s.expanded.contact,
+      contactArrow: s.expanded.contact ? '▾' : '▸',
+      toggleContactSec: () => this.setState(prev => ({ expanded: { ...prev.expanded, contact: !prev.expanded.contact } })),
+      policyExpanded: s.expanded.policy,
+      policyArrow: s.expanded.policy ? '▾' : '▸',
+      togglePolicySec: () => this.setState(prev => ({ expanded: { ...prev.expanded, policy: !prev.expanded.policy } })),
+      // reservation panel
+      journey, journeyCaption, quickActions, breakdown,
+      breakdownExpanded: s.expanded.breakdown,
+      breakdownArrow: s.expanded.breakdown ? '▾' : '▸',
+      toggleBreakdown: () => this.setState(prev => ({ expanded: { ...prev.expanded, breakdown: !prev.expanded.breakdown } })),
+      accessCode: s.accessShown ? extras.code : '• • • •',
+      accessBtnLabel: s.accessShown ? 'Hide' : 'Show',
+      toggleAccess: () => this.setState(prev => ({ accessShown: !prev.accessShown })),
+      copyAccess,
+      copyLabel: s.copied ? 'Copied ✓' : 'Copy',
+      noteText: s.notes[sel.id] ?? '',
+      onNoteChange: (e) => { const v = e.target.value; this.setState(prev => ({ notes: { ...prev.notes, [sel.id]: v } })); },
+      // palette
+      paletteOpen: s.paletteOpen,
+      openPalette: () => this.setState({ paletteOpen:true, query:'' }),
+      closePalette: () => this.setState({ paletteOpen:false }),
+      stopProp: (e) => e.stopPropagation(),
+      paletteInputRef: this.paletteInputRef,
+      query: s.query,
+      onQueryChange: (e) => this.setState({ query: e.target.value }),
+      paletteHeading, paletteItems,
+      paletteEmpty: q.length > 0 && paletteItems.length === 0
+    };
+  }
+}
+</script>
+</body>
+</html>
